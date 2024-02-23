@@ -29,4 +29,24 @@ public abstract class Titan implements Attackee, Attacker, Mobil, Comparable<Tit
 		this.resourcesValue = resourcesValue;
 		this.dangerLevel = dangerLevel; 
 	}
+
+	public int getCurrentHealth() {
+		return currentHealth;
+	}
+
+	public int getResourcesValue() {
+		return resourcesValue;
+	}
+
+	public int getDamage() {
+		return baseDamage;
+	}
+
+	public int getDistance() {
+		return distanceFromBase;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
 }
