@@ -49,4 +49,8 @@ public abstract class Titan implements Attackee, Attacker, Mobil, Comparable<Tit
 	public int getSpeed() {
 		return speed;
 	}
+
+	public int compareTo(Titan o) {
+		return this.distanceFromBase - o.distanceFromBase;
+	}
 }

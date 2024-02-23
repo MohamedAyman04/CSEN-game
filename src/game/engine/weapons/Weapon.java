@@ -1,7 +1,8 @@
 package game.engine.weapons;
 
+import game.engine.interfaces.Attacker;
 
-public abstract class Weapon  {
+public abstract class Weapon implements Attacker {
     private final int baseDamage;
     public Weapon(int baseDamage){
         this.baseDamage=baseDamage;
@@ -9,8 +10,4 @@ public abstract class Weapon  {
     public int getDamage() {
         return baseDamage;
     }
-
-
-
-
 }
