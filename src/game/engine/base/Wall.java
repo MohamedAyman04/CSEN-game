@@ -1,0 +1,20 @@
+package game.engine.base;
+
+public class Wall {
+    private final int baseHealth;
+    private int currentHealth;
+    public Wall(int baseHealth){
+        this.baseHealth=baseHealth;
+        this.currentHealth=baseHealth;
+    }
+    public int getBaseHealth() {
+        return baseHealth;
+    }
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth=currentHealth;
+    }
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+
+}
