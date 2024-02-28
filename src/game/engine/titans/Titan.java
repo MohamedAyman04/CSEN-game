@@ -34,6 +34,10 @@ public abstract class Titan implements Attackee, Attacker, Mobil, Comparable<Tit
 		return currentHealth;
 	}
 
+	public void setCurrentHealth(int health) {
+		currentHealth = health;
+	}
+
 	public int getResourcesValue() {
 		return resourcesValue;
 	}
@@ -45,9 +49,16 @@ public abstract class Titan implements Attackee, Attacker, Mobil, Comparable<Tit
 	public int getDistance() {
 		return distanceFromBase;
 	}
+	public void setDistance(int distance) {
+		distanceFromBase = distance;
+	}
 
 	public int getSpeed() {
 		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
 	}
 
 	public int compareTo(Titan o) {
