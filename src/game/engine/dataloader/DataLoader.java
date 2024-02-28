@@ -5,6 +5,7 @@ import game.engine.weapons.WeaponRegistry;
 import java.io.*;
 import java.util.HashMap;
 
+
 public class DataLoader {
     private static final String TITANS_FILE_NAME = "titans.csv";
     private static final String WEAPONS_FILE_NAME = "weapons.csv";
