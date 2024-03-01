@@ -10,8 +10,7 @@ public class Wall implements Attackee {
         this.currentHealth=baseHealth;
     }
     public void setCurrentHealth(int currentHealth) {
-        if (currentHealth >= 0)
-            this.currentHealth = currentHealth;
+        this.currentHealth = Math.max(0, currentHealth);
     }
 
     @Override
@@ -21,5 +20,9 @@ public class Wall implements Attackee {
 
     public int getCurrentHealth() {
         return currentHealth;
+    }
+
+    public int getBaseHealth() {
+        return baseHealth;
     }
 }

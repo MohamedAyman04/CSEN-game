@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6e441dbf-fd84-4563-946e-4340437d7f70" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/junit-4.13.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/tests/Milestone1PublicTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSEN-game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CSEN-game.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/base/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/base/Wall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/dataloader/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/dataloader/DataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/exceptions/GameActionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/exceptions/GameActionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/exceptions/InsufficientResourcesException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/exceptions/InsufficientResourcesException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/AbnormalTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/AbnormalTitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/ArmoredTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/ArmoredTitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/ColossalTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/ColossalTitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/PureTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/PureTitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/Titan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/Titan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/PiercingCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/PiercingCannon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/SniperCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/SniperCannon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/VolleySpreadCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/VolleySpreadCannon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/WallTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/WallTrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/factory/FactoryResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/factory/FactoryResponse.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2d67ofT3zCENx7Sc1tqAG3GC6CR" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Neutral Files\GUC\Semester 4\Computer Lab\CSEN-game" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Milestone1PublicTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSEN-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="game.tests" />
+      <option name="MAIN_CLASS_NAME" value="game.tests.Milestone1PublicTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Milestone1PublicTests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e441dbf-fd84-4563-946e-4340437d7f70" name="Changes" comment="" />
+      <created>1709316851396</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709316851396</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

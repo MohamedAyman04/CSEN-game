@@ -38,11 +38,12 @@ public class DataLoader {
             String[] words = line.split(",");
             int[] data = new int[words.length];
             for (int i=0; i<words.length; i++) {
-                if (i != 3)
+                if (i != 3) {
                     data[i] = Integer.parseInt(words[i]);
+                }
             }
             WeaponRegistry weapon;
-            if (data[0] == 3) {
+            if (data.length != 4) {
                 weapon = new WeaponRegistry(data[0], data[1], data[2], words[3], data[4], data[5]);
             } else {
                 weapon = new WeaponRegistry(data[0], data[1], data[2], words[3]);

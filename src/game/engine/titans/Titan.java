@@ -35,7 +35,7 @@ public abstract class Titan implements Attackee, Attacker, Mobil, Comparable<Tit
 	}
 
 	public void setCurrentHealth(int health) {
-		currentHealth = health;
+        currentHealth = Math.max(health, 0);
 	}
 
 	public int getResourcesValue() {
@@ -63,5 +63,17 @@ public abstract class Titan implements Attackee, Attacker, Mobil, Comparable<Tit
 
 	public int compareTo(Titan o) {
 		return this.distanceFromBase - o.distanceFromBase;
+	}
+
+	public int getDangerLevel() {
+		return dangerLevel;
+	}
+
+	public int getHeightInMeters() {
+		return heightInMeters;
+	}
+
+	public int getBaseHealth() {
+		return baseHealth;
 	}
 }
