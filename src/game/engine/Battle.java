@@ -44,7 +44,7 @@ public class Battle {
         for (int i = 0; i < numOfLanes; i++) {
             Wall w = new Wall(WALL_BASE_HEALTH);
             Lane l = new Lane(w);
-            originalLanes.add(i,l);
+            originalLanes.add(l);
             lanes.add(l);
         }
     }
