@@ -4,7 +4,7 @@ package game.engine.interfaces;
 // game.
 
 public interface Attackee {
-	public int getCurrentHealth(); // a method to retrieve the current Health
-	public void setCurrentHealth(int health); // set the current health
-	public int getResourcesValue(); // get the resources
+	int getCurrentHealth(); // a method to retrieve the current Health
+	void setCurrentHealth(int health); // set the current health
+	int getResourcesValue(); // get the resources
 }

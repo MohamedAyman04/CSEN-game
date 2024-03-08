@@ -50,7 +50,8 @@ public abstract class Titan implements Attackee, Attacker, Mobil, Comparable<Tit
 		return distanceFromBase;
 	}
 	public void setDistance(int distance) {
-		distanceFromBase = distance;
+
+		distanceFromBase = Math.max(0, distance);
 	}
 
 	public int getSpeed() {
@@ -58,7 +59,7 @@ public abstract class Titan implements Attackee, Attacker, Mobil, Comparable<Tit
 	}
 
 	public void setSpeed(int speed) {
-		this.speed = speed;
+		this.speed = Math.max(0, speed);
 	}
 
 	public int compareTo(Titan o) {
