@@ -10,4 +10,11 @@ public interface Mobil
 
 	void setSpeed(int speed);
 
+	default boolean hasReachedTarget() {
+		return false;
+	}
+
+	default boolean move() {
+		return false;
+	}
 }

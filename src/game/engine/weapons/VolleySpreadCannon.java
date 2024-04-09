@@ -1,5 +1,10 @@
 package game.engine.weapons;
 
+import game.engine.titans.Titan;
+
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
 public class VolleySpreadCannon extends Weapon
 {
 	public static final int WEAPON_CODE = 3;
@@ -24,4 +29,25 @@ public class VolleySpreadCannon extends Weapon
 		return maxRange;
 	}
 
+	@Override
+	public int turnAttack(PriorityQueue<Titan> laneTitans) {
+		int resourcesSoFar = 0;
+		ArrayList<Titan> arr = new ArrayList<>();
+		while (!laneTitans.isEmpty()) {
+			Titan titan = laneTitans.poll();
+			if (titan.getDistance() > minRange && titan.getDistance() < maxRange) {
+				int newHealth = titan.getCurrentHealth() - super.getDamage();
+				if (newHealth <= 0) {
+					resourcesSoFar += titan.getResourcesValue();
+				} else {
+					titan.setCurrentHealth(newHealth);
+					arr.add(titan);
+				}
+			} else {
+				arr.add(titan);
+			}
+		}
+		laneTitans.addAll(arr);
+		return resourcesSoFar;
+	}
 }
