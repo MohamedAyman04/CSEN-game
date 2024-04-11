@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6e441dbf-fd84-4563-946e-4340437d7f70" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/interfaces/Attackee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/interfaces/Attackee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/interfaces/Attacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/interfaces/Attacker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/AbnormalTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/AbnormalTitan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/ArmoredTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/ArmoredTitan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/ColossalTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/ColossalTitan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/PureTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/PureTitan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/TitanRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/TitanRegistry.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
