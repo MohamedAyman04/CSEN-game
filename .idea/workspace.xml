@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6e441dbf-fd84-4563-946e-4340437d7f70" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/interfaces/Mobil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/interfaces/Mobil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/PiercingCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/PiercingCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/SniperCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/SniperCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/VolleySpreadCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/VolleySpreadCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/WallTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/WallTrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/factory/WeaponFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/factory/WeaponFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/interfaces/Attackee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/interfaces/Attackee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/interfaces/Attacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/interfaces/Attacker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/AbnormalTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/AbnormalTitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/ArmoredTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/ArmoredTitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/ColossalTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/ColossalTitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/PureTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/PureTitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/TitanRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/TitanRegistry.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,19 +37,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "G:/semester 4/CSEN401/GUC_402_62_41932_2024-04-01T11_11_28"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/semester 4/CSEN401/GUC_402_62_41932_2024-04-01T11_11_28&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Neutral Files\GUC\Semester 4\Computer Lab\CSEN-game\src\game\tests" />

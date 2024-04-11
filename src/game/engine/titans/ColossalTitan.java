@@ -1,5 +1,7 @@
 package game.engine.titans;
 
+import game.engine.interfaces.Attackee;
+
 public class ColossalTitan extends Titan
 {
 	public static final int TITAN_CODE = 4;
@@ -9,5 +11,6 @@ public class ColossalTitan extends Titan
 	{
 		super(baseHealth, baseDamage, heightInMeters, distanceFromBase, speed, resourcesValue, dangerLevel);
 	}
+
 	
 }
