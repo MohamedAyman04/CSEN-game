@@ -11,10 +11,11 @@ public interface Mobil
 	void setSpeed(int speed);
 
 	default boolean hasReachedTarget() {
-		return false;
+		return getDistance() == 0;
 	}
 
 	default boolean move() {
-		return false;
+		setDistance(getDistance() - getSpeed());
+		return getDistance() == 0;
 	}
 }
