@@ -12,11 +12,7 @@ public class ArmoredTitan extends Titan
 		super(baseHealth, baseDamage, heightInMeters, distanceFromBase, speed, resourcesValue, dangerLevel);
 	}
 	public int takeDamage(int damage) {
-		if(this.getCurrentHealth()-(0.25*damage)<=0){
-			return this.getResourcesValue();
-		}
-		return 0;
+		return super.takeDamage((int) (damage*0.25));
 	}
-
 
 }
