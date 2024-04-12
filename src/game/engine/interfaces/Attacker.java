@@ -10,7 +10,7 @@ public interface Attacker
 			return target.getResourcesValue();
 		}
 		else
-			return 0;
+			return target.takeDamage(getDamage());
 	}
 
 }

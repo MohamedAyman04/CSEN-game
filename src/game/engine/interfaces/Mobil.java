@@ -18,4 +18,5 @@ public interface Mobil
 		setDistance(getDistance() - getSpeed());
 		return getDistance() == 0;
 	}
+
 }

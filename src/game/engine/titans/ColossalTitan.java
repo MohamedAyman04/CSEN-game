@@ -12,5 +12,8 @@ public class ColossalTitan extends Titan
 		super(baseHealth, baseDamage, heightInMeters, distanceFromBase, speed, resourcesValue, dangerLevel);
 	}
 
-	
+	@Override
+	public void setSpeed(int speed) {
+		super.setSpeed(++speed);
+	}
 }
