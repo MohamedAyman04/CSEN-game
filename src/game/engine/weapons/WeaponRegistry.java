@@ -56,7 +56,7 @@ public class WeaponRegistry {
 		return maxRange;
 	}
 
-	Weapon buildWeapon() {
+	public Weapon buildWeapon() {
 		if (code == 1) {
 			return new PiercingCannon(damage);
 		}
