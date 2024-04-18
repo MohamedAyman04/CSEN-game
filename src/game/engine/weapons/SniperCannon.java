@@ -18,13 +18,11 @@ public class SniperCannon extends Weapon
 	public int turnAttack(PriorityQueue<Titan> laneTitans) {
 		if (!laneTitans.isEmpty()) {
 			Titan titan = laneTitans.poll();
-			int newHealth = titan.getCurrentHealth() - super.getDamage();
-			if (newHealth <= 0) {
-				return titan.getResourcesValue();
-			} else {
-				titan.setCurrentHealth(newHealth);
+			int resources = titan.takeDamage(super.getDamage());
+			if (resources == 0) {
 				laneTitans.add(titan);
 			}
+			return resources;
 		}
 		return 0;
 	}

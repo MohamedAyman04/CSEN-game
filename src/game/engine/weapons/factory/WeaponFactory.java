@@ -28,20 +28,14 @@ public class WeaponFactory
 			throw new InsufficientResourcesException(resources);
 		} else {
 			resources -= weaponRegistry.getPrice();
-			switch (weaponCode) {
-				case 1:
-					PiercingCannon piercingCannon = new PiercingCannon(weaponRegistry.getDamage());
-					return new FactoryResponse(piercingCannon, resources);
-				case 2:
-					SniperCannon sniperCannon = new SniperCannon(weaponRegistry.getDamage());
-					return new FactoryResponse(sniperCannon, resources);
-				case 3:
-					VolleySpreadCannon volleySpreadCannon = new VolleySpreadCannon(weaponRegistry.getDamage(), weaponRegistry.getMinRange(), weaponRegistry.getMaxRange());
-					return new FactoryResponse(volleySpreadCannon, resources);
-				default:
-					WallTrap wallTrap = new WallTrap(weaponRegistry.getDamage());
-					return new FactoryResponse(wallTrap, resources);
-			}
+            return switch (weaponCode) {
+                case 1 -> new FactoryResponse(new PiercingCannon(weaponRegistry.getDamage()), resources);
+                case 2 -> new FactoryResponse(new SniperCannon(weaponRegistry.getDamage()), resources);
+                case 3 ->
+                        new FactoryResponse(new VolleySpreadCannon(weaponRegistry.getDamage(), weaponRegistry.getMinRange(), weaponRegistry.getMaxRange()), resources);
+                case 4 -> new FactoryResponse(new WallTrap(weaponRegistry.getDamage()), resources);
+                default -> null;
+            };
 		}
 	}
 

@@ -83,16 +83,11 @@ public class Lane implements Comparable<Lane>
 		return sum;
 	}
 	public int performLaneWeaponsAttacks() {
-		ArrayList<Weapon> temp3 = new ArrayList<>();
-		int sum2 = 0;
-		while (!weapons.isEmpty()) {
-			Weapon t3 = weapons.removeLast();
-			sum2 += t3.attack(laneWall);
-			temp3.addLast(t3);
-		}
-		while(!temp3.isEmpty())
-			weapons.addLast(temp3.removeLast());
-		return sum2;
+		int resourcesSoFar = 0;
+        for (Weapon weapon : weapons) {
+            resourcesSoFar += weapon.turnAttack(titans);
+        }
+		return resourcesSoFar;
 	}
 
 	public boolean isLaneLost(){

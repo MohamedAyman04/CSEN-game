@@ -16,20 +16,16 @@ public class WallTrap extends Weapon
 	@Override
 	public int turnAttack(PriorityQueue<Titan> laneTitans) {
 		if (!laneTitans.isEmpty()) {
-			int resourcesSoFar = 0;
 			Titan titan = laneTitans.poll();
 			if (titan.getDistance() == 0) {
-				int newHealth = titan.getCurrentHealth() - super.getDamage();
-				if (newHealth <= 0) {
-					resourcesSoFar += titan.getResourcesValue();
-				} else {
-					titan.setCurrentHealth(newHealth);
+				int resources = titan.takeDamage(super.getDamage());
+				if (resources == 0) {
 					laneTitans.add(titan);
 				}
+				return resources;
 			} else {
 				laneTitans.add(titan);
 			}
-			return resourcesSoFar;
 		}
 		return 0;
 	}

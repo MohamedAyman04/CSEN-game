@@ -14,7 +14,7 @@ public abstract class Weapon implements Attacker
 		this.baseDamage = baseDamage;
 	}
 
-	abstract int turnAttack(PriorityQueue<Titan> laneTitans);
+	public abstract int turnAttack(PriorityQueue<Titan> laneTitans);
 
 	@Override
 	public int getDamage()

@@ -8,12 +8,14 @@ public interface Attackee
 
 	int getResourcesValue();
 	default int takeDamage(int damage) {
-		if(getCurrentHealth()-damage<=0){
+		if(getCurrentHealth() - damage <= 0) {
+			setCurrentHealth(0);
 			return getResourcesValue();
 		}
+		setCurrentHealth(getCurrentHealth() - damage);
 		return 0;
 	}
 	default boolean isDefeated() {
-		return getCurrentHealth()<=0;
+		return getCurrentHealth() <= 0;
 	}
 }

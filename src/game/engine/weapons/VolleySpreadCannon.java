@@ -35,14 +35,12 @@ public class VolleySpreadCannon extends Weapon
 		ArrayList<Titan> arr = new ArrayList<>();
 		while (!laneTitans.isEmpty()) {
 			Titan titan = laneTitans.poll();
-			if (titan.getDistance() > minRange && titan.getDistance() < maxRange) {
-				int newHealth = titan.getCurrentHealth() - super.getDamage();
-				if (newHealth <= 0) {
-					resourcesSoFar += titan.getResourcesValue();
-				} else {
-					titan.setCurrentHealth(newHealth);
+			if (titan.getDistance() >= minRange && titan.getDistance() <= maxRange) {
+				int resources = titan.takeDamage(super.getDamage());
+				if (resources == 0) {
 					arr.add(titan);
 				}
+				resourcesSoFar += resources;
 			} else {
 				arr.add(titan);
 			}

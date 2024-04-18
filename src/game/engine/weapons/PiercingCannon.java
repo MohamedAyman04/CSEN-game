@@ -17,19 +17,17 @@ public class PiercingCannon extends Weapon
 		Titan[] arr = new Titan[5];
 		int resourcesSoFar = 0;
 
-		for (int i=0; i<5 && !laneTitans.isEmpty(); i++) {
+		for (int i=0; !laneTitans.isEmpty() && i<5 ; i++) {
 			arr[i] = laneTitans.poll();
 		}
 
-		for (int i=0; i<5; i++) {
-            int newHealth = arr[i].getCurrentHealth() - super.getDamage();
-			if (newHealth <= 0) {
-				resourcesSoFar += arr[i].getResourcesValue();
-			} else {
-				arr[i].setCurrentHealth(newHealth);
-				laneTitans.add(arr[i]);
-			}
-		}
+        for (int i=0; i<arr.length && arr[i] != null; i++) {
+				int resources = arr[i].takeDamage(super.getDamage());
+				if (resources == 0) {
+					laneTitans.add(arr[i]);
+				}
+				resourcesSoFar += resources;
+        }
 
 		return resourcesSoFar;
 	}
