@@ -10,9 +10,7 @@ import game.engine.dataloader.DataLoader;
 import game.engine.exceptions.InsufficientResourcesException;
 import game.engine.exceptions.InvalidLaneException;
 import game.engine.lanes.Lane;
-import game.engine.titans.Titan;
-import game.engine.titans.TitanRegistry;
-import game.engine.weapons.Weapon;
+import game.engine.titans.*;
 import game.engine.weapons.factory.FactoryResponse;
 import game.engine.weapons.factory.WeaponFactory;
 
@@ -152,6 +150,77 @@ public class Battle
 			this.getLanes().add(l);
 		}
 	}
+	public void refillApproachingTitans(){
+		switch (this.getBattlePhase()){
+			case EARLY -> {
+				for (int i = 0; i < PHASES_APPROACHING_TITANS[0].length; i++) {
+					int titan_code=PHASES_APPROACHING_TITANS[0][i];
+					TitanRegistry t = titansArchives.get(titan_code);
+					if(titan_code==1){
+						approachingTitans.add(i, new PureTitan(t.getBaseHealth(),t.getBaseDamage(),t.getHeightInMeters(),titanSpawnDistance,t.getSpeed(),t.getResourcesValue(),t.getDangerLevel()));
+					}
+					else if (titan_code==2){
+						approachingTitans.add(i, new AbnormalTitan(t.getBaseHealth(),t.getBaseDamage(),t.getHeightInMeters(),titanSpawnDistance,t.getSpeed(),t.getResourcesValue(),t.getDangerLevel()));
+					} else if (titan_code==3) {
+						approachingTitans.add(i, new ArmoredTitan(t.getBaseHealth(),t.getBaseDamage(),t.getHeightInMeters(),titanSpawnDistance,t.getSpeed(),t.getResourcesValue(),t.getDangerLevel()));
+					}
+					else{
+						approachingTitans.add(i, new ColossalTitan(t.getBaseHealth(),t.getBaseDamage(),t.getHeightInMeters(),titanSpawnDistance,t.getSpeed(),t.getResourcesValue(),t.getDangerLevel()));
+					}
+				}
+			}
+			case INTENSE -> {
+				for (int i = 0; i < PHASES_APPROACHING_TITANS[1].length; i++) {
+					int titan_code=PHASES_APPROACHING_TITANS[1][i];
+					TitanRegistry t = titansArchives.get(titan_code);
+					if(titan_code==1){
+						approachingTitans.add(i, new PureTitan(t.getBaseHealth(),t.getBaseDamage(),t.getHeightInMeters(),titanSpawnDistance,t.getSpeed(),t.getResourcesValue(),t.getDangerLevel()));
+					}
+					else if (titan_code==2){
+						approachingTitans.add(i, new AbnormalTitan(t.getBaseHealth(),t.getBaseDamage(),t.getHeightInMeters(),titanSpawnDistance,t.getSpeed(),t.getResourcesValue(),t.getDangerLevel()));
+					} else if (titan_code==3) {
+						approachingTitans.add(i, new ArmoredTitan(t.getBaseHealth(),t.getBaseDamage(),t.getHeightInMeters(),titanSpawnDistance,t.getSpeed(),t.getResourcesValue(),t.getDangerLevel()));
+					}
+					else{
+						approachingTitans.add(i, new ColossalTitan(t.getBaseHealth(),t.getBaseDamage(),t.getHeightInMeters(),titanSpawnDistance,t.getSpeed(),t.getResourcesValue(),t.getDangerLevel()));
+					}
+				}
+			}
+			case GRUMBLING -> {
+				for (int i = 0; i < PHASES_APPROACHING_TITANS[2].length; i++) {
+					int titan_code=PHASES_APPROACHING_TITANS[2][i];
+					TitanRegistry t = titansArchives.get(titan_code);
+					approachingTitans.add(i, new ColossalTitan(t.getBaseHealth(),t.getBaseDamage(),t.getHeightInMeters(),titanSpawnDistance,t.getSpeed(),t.getResourcesValue(),t.getDangerLevel()));
+				}
+			}
+		}
+	}
+	public boolean isGameOver(){
+		if(this.getLanes().isEmpty()){
+			return true;
+		}
+		return false;
+	}
+	private void moveTitans(){
+		approachingTitans.forEach(titan -> {
+			if(!titan.hasReachedTarget()){
+				titan.move();
+			}
+		});
+	}
+	private int performTitansAttacks(){
+		Lane lane =this.getLanes().peek();
+		Wall w =lane.getLaneWall();
+		approachingTitans.forEach(titan-> {
+			if(titan.hasReachedTarget()){
+				titan.attack(w);
+			}
+		});
+		if(!w.isDefeated()){
+			return 0;
+		}
+		return w.getResourcesValue();
+	}
 
 	public void purchaseWeapon(int weaponCode, Lane lane) throws InsufficientResourcesException, InvalidLaneException {
 			FactoryResponse factoryResponse = weaponFactory.buyWeapon(resourcesGathered, weaponCode);
@@ -161,24 +230,6 @@ public class Battle
 			} else {
 				lane.addWeapon(factoryResponse.getWeapon());
 			}
-	}
-
-	private int performWeaponsAttacks() {
-		PriorityQueue<Lane> l = new PriorityQueue<>();
-		int totalResources = 0;
-		while (!lanes.isEmpty()) {
-			Lane lane = lanes.poll();
-			if (!lane.isLaneLost()) {
-				totalResources += lane.performLaneWeaponsAttacks();
-			}
-			l.add(lane);
-		}
-		while (!l.isEmpty()) {
-			lanes.add(l.poll());
-		}
-		resourcesGathered += totalResources;
-		score += totalResources;
-		return totalResources;
 	}
 
 }
