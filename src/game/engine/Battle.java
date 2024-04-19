@@ -12,6 +12,7 @@ import game.engine.exceptions.InvalidLaneException;
 import game.engine.lanes.Lane;
 import game.engine.titans.Titan;
 import game.engine.titans.TitanRegistry;
+import game.engine.weapons.Weapon;
 import game.engine.weapons.factory.FactoryResponse;
 import game.engine.weapons.factory.WeaponFactory;
 
@@ -160,6 +161,24 @@ public class Battle
 			} else {
 				lane.addWeapon(factoryResponse.getWeapon());
 			}
+	}
+
+	private int performWeaponsAttacks() {
+		PriorityQueue<Lane> l = new PriorityQueue<>();
+		int totalResources = 0;
+		while (!lanes.isEmpty()) {
+			Lane lane = lanes.poll();
+			if (!lane.isLaneLost()) {
+				totalResources += lane.performLaneWeaponsAttacks();
+			}
+			l.add(lane);
+		}
+		while (!l.isEmpty()) {
+			lanes.add(l.poll());
+		}
+		resourcesGathered += totalResources;
+		score += totalResources;
+		return totalResources;
 	}
 
 }

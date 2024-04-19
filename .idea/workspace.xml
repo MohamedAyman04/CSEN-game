@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1723b61b-7de6-4624-8baf-445aebd4e917" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/game/tests/Milestone2PublicTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/engine/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/interfaces/Attackee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/interfaces/Attackee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/lanes/Lane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/lanes/Lane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/AbnormalTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/AbnormalTitan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/titans/TitanRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/titans/TitanRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/PiercingCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/PiercingCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/SniperCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/SniperCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/VolleySpreadCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/VolleySpreadCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/WallTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/WallTrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/factory/WeaponFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/factory/WeaponFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +31,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Neutral Files\GUC\Semester 4\Computer Lab\CSEN-game\src\game\tests" />
@@ -120,7 +107,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6e441dbf-fd84-4563-946e-4340437d7f70" name="Changes" comment="" />
+      <changelist id="1723b61b-7de6-4624-8baf-445aebd4e917" name="Changes" comment="" />
       <created>1709316851396</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
