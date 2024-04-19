@@ -73,13 +73,17 @@ public class Lane implements Comparable<Lane>
 		PriorityQueue<Titan> temp2 = new PriorityQueue<>();
 		int sum = 0;
 		while (!titans.isEmpty()) {
-			Titan t2 = titans.remove();
-			if (t2.hasReachedTarget())
-				sum += t2.attack(laneWall);
-			temp2.add(t2);
+			Titan t2 = titans.poll();
+			if (t2.hasReachedTarget()) {
+				int res = t2.attack(laneWall);
+				if (res == 0) {
+					temp2.add(t2);
+				}
+				sum += res;
+			}
 		}
 		while(!temp2.isEmpty())
-			titans.add(temp2.remove());
+			titans.add(temp2.poll());
 		return sum;
 	}
 	public int performLaneWeaponsAttacks() {
