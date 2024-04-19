@@ -10,7 +10,8 @@ import game.engine.dataloader.DataLoader;
 import game.engine.exceptions.InsufficientResourcesException;
 import game.engine.exceptions.InvalidLaneException;
 import game.engine.lanes.Lane;
-import game.engine.titans.*;
+import game.engine.titans.Titan;
+import game.engine.titans.TitanRegistry;
 import game.engine.weapons.factory.FactoryResponse;
 import game.engine.weapons.factory.WeaponFactory;
 
@@ -150,82 +151,6 @@ public class Battle
 			this.getLanes().add(l);
 		}
 	}
-	public void refillApproachingTitans(){
-		switch (this.getBattlePhase()){
-			case EARLY -> {
-				for (int i = 0; i < PHASES_APPROACHING_TITANS[0].length; i++) {
-					int titanCode = PHASES_APPROACHING_TITANS[0][i];
-					if(titanCode==1){
-						TitanRegistry T = titansArchives.get(1);
-						approachingTitans.add(i,new PureTitan(T.getBaseHealth(),T.getBaseDamage(),T.getHeightInMeters(),titanSpawnDistance,T.getSpeed(),T.getResourcesValue(),T.getDangerLevel()));
-					}
-					else if(titanCode==2){
-						TitanRegistry T = titansArchives.get(2);
-						approachingTitans.add(i,new AbnormalTitan(T.getBaseHealth(),T.getBaseDamage(),T.getHeightInMeters(),titanSpawnDistance,T.getSpeed(),T.getResourcesValue(),T.getDangerLevel()));
-					}
-					else if(titanCode==3){
-						TitanRegistry T = titansArchives.get(3);
-						approachingTitans.add(i,new ArmoredTitan(T.getBaseHealth(),T.getBaseDamage(),T.getHeightInMeters(),titanSpawnDistance,T.getSpeed(),T.getResourcesValue(),T.getDangerLevel()));
-					}else{
-						TitanRegistry T = titansArchives.get(4);
-						approachingTitans.add(i,new ColossalTitan(T.getBaseHealth(),T.getBaseDamage(),T.getHeightInMeters(),titanSpawnDistance,T.getSpeed(),T.getResourcesValue(),T.getDangerLevel()));
-					}
-				}
-			}
-			case INTENSE -> {
-				for (int i = 0; i < PHASES_APPROACHING_TITANS[1].length; i++) {
-					int titanCode = PHASES_APPROACHING_TITANS[1][i];
-					if(titanCode==1){
-						TitanRegistry T = titansArchives.get(1);
-						approachingTitans.add(i,new PureTitan(T.getBaseHealth(),T.getBaseDamage(),T.getHeightInMeters(),titanSpawnDistance,T.getSpeed(),T.getResourcesValue(),T.getDangerLevel()));
-					}
-					else if(titanCode==2){
-						TitanRegistry T = titansArchives.get(2);
-						approachingTitans.add(i,new AbnormalTitan(T.getBaseHealth(),T.getBaseDamage(),T.getHeightInMeters(),titanSpawnDistance,T.getSpeed(),T.getResourcesValue(),T.getDangerLevel()));
-					}
-					else if(titanCode==3){
-						TitanRegistry T = titansArchives.get(3);
-						approachingTitans.add(i,new ArmoredTitan(T.getBaseHealth(),T.getBaseDamage(),T.getHeightInMeters(),titanSpawnDistance,T.getSpeed(),T.getResourcesValue(),T.getDangerLevel()));
-					}else{
-						TitanRegistry T = titansArchives.get(4);
-						approachingTitans.add(i,new ColossalTitan(T.getBaseHealth(),T.getBaseDamage(),T.getHeightInMeters(),titanSpawnDistance,T.getSpeed(),T.getResourcesValue(),T.getDangerLevel()));
-					}
-				}
-			}
-			default -> {
-				for (int i = 0; i < PHASES_APPROACHING_TITANS[2].length; i++) {
-					TitanRegistry T = titansArchives.get(4);
-						approachingTitans.add(i,new ColossalTitan(T.getBaseHealth(),T.getBaseDamage(),T.getHeightInMeters(),titanSpawnDistance,T.getSpeed(),T.getResourcesValue(),T.getDangerLevel()));
-					}
-				}
-			}
-		}
-	private void moveTitans(){
-		approachingTitans.forEach(titan -> {
-			if(!titan.hasReachedTarget()){
-				titan.move();
-			}
-		});
-	}
-	private int performTitansAttacks(){
-		Lane lane =this.getLanes().peek();
-		Wall w =lane.getLaneWall();
-		approachingTitans.forEach(titan-> {
-			if(titan.hasReachedTarget()){
-					titan.attack(w);
-			}
-		});
-		if(!w.isDefeated()){
-			return 0;
-		}
-		return w.getResourcesValue();
-	}
-	public boolean isGameOver(){
-		if(this.getLanes().isEmpty()){
-			return true;
-		}
-		return false;
-	}
 
 	public void purchaseWeapon(int weaponCode, Lane lane) throws InsufficientResourcesException, InvalidLaneException {
 			FactoryResponse factoryResponse = weaponFactory.buyWeapon(resourcesGathered, weaponCode);
@@ -236,7 +161,5 @@ public class Battle
 				lane.addWeapon(factoryResponse.getWeapon());
 			}
 	}
-
-
 
 }
