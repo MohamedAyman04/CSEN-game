@@ -102,7 +102,7 @@ public class Lane implements Comparable<Lane>
 		PriorityQueue<Titan> temp4 = new PriorityQueue<>();
 		int sum3 = 0;
 		while (!titans.isEmpty()) {
-			Titan t4 = titans.remove();
+			Titan t4 = titans.poll();
 			sum3 += t4.getDangerLevel();
 			temp4.add(t4);
 		}

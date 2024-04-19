@@ -173,83 +173,117 @@ public class Battle {
 	}
 
 	public boolean isGameOver() {
-		if (this.getLanes().isEmpty()) {
-			return true;
-		}
-		return false;
+		return this.getLanes().isEmpty();
 	}
 
 	private void moveTitans() {
-		approachingTitans.forEach(titan -> {
-			if (!titan.hasReachedTarget()) {
-				titan.move();
-			}
-		});
+		PriorityQueue<Lane> l = new PriorityQueue<>();
+		while (!lanes.isEmpty()) {
+			Lane lane = lanes.poll();
+			lane.moveLaneTitans();
+			l.add(lane);
+		}
+		while(!l.isEmpty()) {
+			lanes.add(l.poll());
+		}
 	}
 
 	private int performTitansAttacks() {
-		Lane lane = this.getLanes().peek();
-		Wall w = lane.getLaneWall();
-		approachingTitans.forEach(titan -> {
-			if (titan.hasReachedTarget()) {
-				titan.attack(w);
+		int totalResources = 0;
+		PriorityQueue<Lane> l = new PriorityQueue<>();
+		while (!lanes.isEmpty()) {
+			Lane lane = lanes.poll();
+			int res = lane.performLaneTitansAttacks();
+			if (res == 0) {
+				l.add(lane);
 			}
-		});
-		if (!w.isDefeated()) {
-			return 0;
+			totalResources += res;
 		}
-		return w.getResourcesValue();
+		while (!l.isEmpty()) {
+			lanes.add(l.poll());
+		}
+		return totalResources;
 	}
 
 	public void purchaseWeapon(int weaponCode, Lane lane) throws InsufficientResourcesException, InvalidLaneException {
 		FactoryResponse factoryResponse = weaponFactory.buyWeapon(resourcesGathered, weaponCode);
 		resourcesGathered = factoryResponse.getRemainingResources();
-		if (lane.isLaneLost()) {
-			throw new InvalidLaneException();
-		} else {
+		if (!lane.isLaneLost() && lanes.contains(lane) && originalLanes.contains(lane)) {
 			lane.addWeapon(factoryResponse.getWeapon());
+		} else {
+			throw new InvalidLaneException();
+		}
+		performTurn();
+	}
+
+	private int performWeaponsAttacks() {
+		PriorityQueue<Lane> l = new PriorityQueue<>();
+		int totalResources = 0;
+		while (!lanes.isEmpty()) {
+			Lane lane = lanes.poll();
+			totalResources += lane.performLaneWeaponsAttacks();
+			l.add(lane);
+		}
+		while (!l.isEmpty()) {
+			lanes.add(l.poll());
+		}
+		resourcesGathered += totalResources;
+		score += totalResources;
+		return totalResources;
+	}
+
+	private void performTurn() {
+		if (!isGameOver()) {
+			updateLanesDangerLevels();
+			moveTitans();
+			performWeaponsAttacks();
+			performTitansAttacks();
+			addTurnTitansToLane();
+			finalizeTurns();
 		}
 	}
 
+	public void passTurn() {
+		performTurn();
+	}
+
 	private void addTurnTitansToLane() {
-		if (!approachingTitans.isEmpty()) {
-			Lane leastDangerousLane = lanes.peek();
-			int addedTitans = numberOfTitansPerTurn;
-			for (int i = 0; i < addedTitans; i++) {
-				if (!approachingTitans.isEmpty()) {
-					leastDangerousLane.addTitan(approachingTitans.removeFirst());
+		if (!lanes.isEmpty()) {
+			Lane lane = lanes.poll();
+			for (int i=0; i<numberOfTitansPerTurn; i++) {
+				if (approachingTitans.isEmpty()) {
+					refillApproachingTitans();
 				}
+				lane.addTitan(approachingTitans.removeFirst());
 			}
-		} else {
-			refillApproachingTitans();
+			lanes.add(lane);
 		}
 	}
 
 	private void updateLanesDangerLevels() {
-		PriorityQueue<Lane> tempLanes = new PriorityQueue<Lane>();
+		PriorityQueue<Lane> tempLanes = new PriorityQueue<>();
 		while (!lanes.isEmpty()) {
-			Lane tempLane = lanes.remove();
+			Lane tempLane = lanes.poll();
 			tempLane.updateLaneDangerLevel();
 			tempLanes.add(tempLane);
 		}
 		while (!tempLanes.isEmpty()) {
-			lanes.add(tempLanes.remove());
+			lanes.add(tempLanes.poll());
 		}
 	}
 
 	private void finalizeTurns() {
+		numberOfTurns++;
 		if (numberOfTurns < 15)
 			battlePhase = BattlePhase.EARLY;
 
 		if (numberOfTurns < 30 && numberOfTurns >= 15)
 			battlePhase = BattlePhase.INTENSE;
 
-		if (numberOfTurns >= 30) {
+		if (numberOfTurns >= 30)
 			battlePhase = BattlePhase.GRUMBLING;
-			if (numberOfTurns % 5 == 0)
-				numberOfTitansPerTurn=numberOfTitansPerTurn*2;
 
-		}
-
+		if (numberOfTurns > 30 && numberOfTurns % 5 == 0)
+			numberOfTitansPerTurn *= 2;
 	}
 }
