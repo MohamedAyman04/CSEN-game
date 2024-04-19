@@ -208,12 +208,20 @@ public class Battle
 			}
 		});
 	}
-//	private int performTitansAttacks(){
-//
-//		approachingTitans.forEach(titan -> {
-//
-//		});
-//	}
+	private int performTitansAttacks(){
+		Lane lane =this.getLanes().peek();
+		Wall w =lane.getLaneWall();
+		approachingTitans.forEach(titan-> {
+			if(titan.hasReachedTarget()){
+				titan.attack(w);
+			}
+		});
+		if(!w.isDefeated()){
+			return 0;
+		}
+		return w.getResourcesValue();
+	}
+
 	public void purchaseWeapon(int weaponCode, Lane lane) throws InsufficientResourcesException, InvalidLaneException {
 			FactoryResponse factoryResponse = weaponFactory.buyWeapon(resourcesGathered, weaponCode);
 			resourcesGathered = factoryResponse.getRemainingResources();
