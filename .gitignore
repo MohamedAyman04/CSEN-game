@@ -1,7 +1,6 @@
 # Compiled class file
 *.class
 bin/
-.idea/
 
 .DS_Store
 
