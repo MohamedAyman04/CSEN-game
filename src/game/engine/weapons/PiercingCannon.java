@@ -23,7 +23,7 @@ public class PiercingCannon extends Weapon
 
         for (int i=0; i<arr.length && arr[i] != null; i++) {
 				int resources = arr[i].takeDamage(super.getDamage());
-				if (resources == 0) {
+				if (!arr[i].isDefeated()) {
 					laneTitans.add(arr[i]);
 				}
 				resourcesSoFar += resources;

@@ -74,11 +74,9 @@ public class Lane implements Comparable<Lane>
 		int sum = 0;
 		while (!titans.isEmpty()) {
 			Titan t2 = titans.poll();
+			temp2.add(t2);
 			if (t2.hasReachedTarget()) {
 				int res = t2.attack(laneWall);
-				if (res == 0) {
-					temp2.add(t2);
-				}
 				sum += res;
 			}
 		}

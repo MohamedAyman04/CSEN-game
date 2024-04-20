@@ -7,13 +7,29 @@
     <list default="true" id="0d800c37-9e5f-4a7e-a89a-c166c35ce9bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/engine/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/interfaces/Mobil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/interfaces/Mobil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/engine/lanes/Lane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/lanes/Lane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/PiercingCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/PiercingCannon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/SniperCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/SniperCannon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/VolleySpreadCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/VolleySpreadCannon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/WallTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/WallTrap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2fNKwdCSGRe5Noer8HUXCao3dwQ" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -23,10 +39,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.Milestone2PublicTests">
     <configuration name="Milestone2PublicTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSEN-game" />
       <extension name="coverage">
@@ -42,14 +60,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Milestone2PublicTests.testPerformTurnUpdatelaneDangerLevelInLaneBattleAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSEN-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="game.tests" />
+      <option name="MAIN_CLASS_NAME" value="game.tests.Milestone2PublicTests" />
+      <option name="METHOD_NAME" value="testPerformTurnUpdatelaneDangerLevelInLaneBattleAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Milestone2PublicTests" />
+        <item itemvalue="JUnit.Milestone2PublicTests.testPerformTurnUpdatelaneDangerLevelInLaneBattleAll" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d800c37-9e5f-4a7e-a89a-c166c35ce9bd" name="Changes" comment="" />
+      <created>1713636336178</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713636336178</updated>
+    </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="game.engine.lanes.Lane" memberName="titans" />
+        <PinnedItemInfo parentTag="game.engine.Battle" memberName="lanes" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

@@ -142,7 +142,7 @@ public class Battle {
 						approachingTitans.add(i, new AbnormalTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
 					} else if (titan_code == 3) {
 						approachingTitans.add(i, new ArmoredTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
-					} else {
+					} else if (titan_code == 4) {
 						approachingTitans.add(i, new ColossalTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
 					}
 				}
@@ -157,7 +157,7 @@ public class Battle {
 						approachingTitans.add(i, new AbnormalTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
 					} else if (titan_code == 3) {
 						approachingTitans.add(i, new ArmoredTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
-					} else {
+					} else if (titan_code == 4) {
 						approachingTitans.add(i, new ColossalTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
 					}
 				}
@@ -206,14 +206,14 @@ public class Battle {
 	}
 
 	public void purchaseWeapon(int weaponCode, Lane lane) throws InsufficientResourcesException, InvalidLaneException {
-		FactoryResponse factoryResponse = weaponFactory.buyWeapon(resourcesGathered, weaponCode);
-		resourcesGathered = factoryResponse.getRemainingResources();
-		if (!lane.isLaneLost() && lanes.contains(lane) && originalLanes.contains(lane)) {
+		if (!lane.isLaneLost() && lanes.contains(lane)) {
+			FactoryResponse factoryResponse = weaponFactory.buyWeapon(resourcesGathered, weaponCode);
 			lane.addWeapon(factoryResponse.getWeapon());
+			resourcesGathered = factoryResponse.getRemainingResources();
+			performTurn();
 		} else {
 			throw new InvalidLaneException();
 		}
-		performTurn();
 	}
 
 	private int performWeaponsAttacks() {
@@ -233,14 +233,12 @@ public class Battle {
 	}
 
 	private void performTurn() {
-		if (!isGameOver()) {
-			updateLanesDangerLevels();
-			moveTitans();
-			performWeaponsAttacks();
-			performTitansAttacks();
-			addTurnTitansToLane();
-			finalizeTurns();
-		}
+		moveTitans();
+		performWeaponsAttacks();
+		performTitansAttacks();
+		addTurnTitansToLane();
+		updateLanesDangerLevels();
+		finalizeTurns();
 	}
 
 	public void passTurn() {

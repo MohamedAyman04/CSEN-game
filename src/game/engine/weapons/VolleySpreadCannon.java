@@ -37,7 +37,7 @@ public class VolleySpreadCannon extends Weapon
 			Titan titan = laneTitans.poll();
 			if (titan.getDistance() >= minRange && titan.getDistance() <= maxRange) {
 				int resources = titan.takeDamage(super.getDamage());
-				if (resources == 0) {
+				if (!titan.isDefeated()) {
 					arr.add(titan);
 				}
 				resourcesSoFar += resources;

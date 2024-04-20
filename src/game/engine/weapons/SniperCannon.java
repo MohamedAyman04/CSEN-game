@@ -19,7 +19,7 @@ public class SniperCannon extends Weapon
 		if (!laneTitans.isEmpty()) {
 			Titan titan = laneTitans.poll();
 			int resources = titan.takeDamage(super.getDamage());
-			if (resources == 0) {
+			if (!titan.isDefeated()) {
 				laneTitans.add(titan);
 			}
 			return resources;
