@@ -24,7 +24,7 @@ public class WeaponFactory
 
 	public FactoryResponse buyWeapon(int resources, int weaponCode) throws InsufficientResourcesException {
 		WeaponRegistry weaponRegistry = weaponShop.get(weaponCode);
-		if (resources <= weaponRegistry.getPrice()) {
+		if (resources < weaponRegistry.getPrice()) {
 			throw new InsufficientResourcesException(resources);
 		} else {
 			resources -= weaponRegistry.getPrice();

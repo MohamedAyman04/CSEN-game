@@ -7,12 +7,7 @@
     <list default="true" id="0d800c37-9e5f-4a7e-a89a-c166c35ce9bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/engine/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/interfaces/Mobil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/interfaces/Mobil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/lanes/Lane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/lanes/Lane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/PiercingCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/PiercingCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/SniperCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/SniperCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/VolleySpreadCannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/VolleySpreadCannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/WallTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/WallTrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/weapons/factory/WeaponFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/weapons/factory/WeaponFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +20,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2fNKwdCSGRe5Noer8HUXCao3dwQ" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -37,13 +32,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JUnit.Milestone2PublicTests">
     <configuration name="Milestone2PublicTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSEN-game" />

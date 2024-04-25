@@ -136,37 +136,21 @@ public class Battle {
 				for (int i = 0; i < PHASES_APPROACHING_TITANS[0].length; i++) {
 					int titan_code = PHASES_APPROACHING_TITANS[0][i];
 					TitanRegistry t = titansArchives.get(titan_code);
-					if (titan_code == 1) {
-						approachingTitans.add(i, new PureTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
-					} else if (titan_code == 2) {
-						approachingTitans.add(i, new AbnormalTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
-					} else if (titan_code == 3) {
-						approachingTitans.add(i, new ArmoredTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
-					} else if (titan_code == 4) {
-						approachingTitans.add(i, new ColossalTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
-					}
+					approachingTitans.add(t.spawnTitan(titanSpawnDistance));
 				}
 			}
 			case INTENSE -> {
 				for (int i = 0; i < PHASES_APPROACHING_TITANS[1].length; i++) {
 					int titan_code = PHASES_APPROACHING_TITANS[1][i];
 					TitanRegistry t = titansArchives.get(titan_code);
-					if (titan_code == 1) {
-						approachingTitans.add(i, new PureTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
-					} else if (titan_code == 2) {
-						approachingTitans.add(i, new AbnormalTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
-					} else if (titan_code == 3) {
-						approachingTitans.add(i, new ArmoredTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
-					} else if (titan_code == 4) {
-						approachingTitans.add(i, new ColossalTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
-					}
+					approachingTitans.add(t.spawnTitan(titanSpawnDistance));
 				}
 			}
 			case GRUMBLING -> {
 				for (int i = 0; i < PHASES_APPROACHING_TITANS[2].length; i++) {
 					int titan_code = PHASES_APPROACHING_TITANS[2][i];
 					TitanRegistry t = titansArchives.get(titan_code);
-					approachingTitans.add(i, new ColossalTitan(t.getBaseHealth(), t.getBaseDamage(), t.getHeightInMeters(), titanSpawnDistance, t.getSpeed(), t.getResourcesValue(), t.getDangerLevel()));
+					approachingTitans.add(t.spawnTitan(titanSpawnDistance));
 				}
 			}
 		}
@@ -194,7 +178,7 @@ public class Battle {
 		while (!lanes.isEmpty()) {
 			Lane lane = lanes.poll();
 			int res = lane.performLaneTitansAttacks();
-			if (res == 0) {
+			if (!lane.isLaneLost()) {
 				l.add(lane);
 			}
 			totalResources += res;
@@ -206,7 +190,7 @@ public class Battle {
 	}
 
 	public void purchaseWeapon(int weaponCode, Lane lane) throws InsufficientResourcesException, InvalidLaneException {
-		if (!lane.isLaneLost() && lanes.contains(lane)) {
+		if (!lane.isLaneLost() && lanes.contains(lane) && originalLanes.contains(lane)) {
 			FactoryResponse factoryResponse = weaponFactory.buyWeapon(resourcesGathered, weaponCode);
 			lane.addWeapon(factoryResponse.getWeapon());
 			resourcesGathered = factoryResponse.getRemainingResources();
