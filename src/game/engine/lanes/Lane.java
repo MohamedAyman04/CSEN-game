@@ -55,7 +55,7 @@ public class Lane implements Comparable<Lane>
 	}
 
 	public void addTitan(Titan titan){titans.add(titan);}
-	public void addWeapon(Weapon weapon){weapons.addLast(weapon);}
+	public void addWeapon(Weapon weapon){weapons.add(weapon);}
 
 	public void moveLaneTitans() {
 		PriorityQueue<Titan> temp = new PriorityQueue<>();

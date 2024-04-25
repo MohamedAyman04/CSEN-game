@@ -132,27 +132,27 @@ public class Battle {
 
 	public void refillApproachingTitans() {
 		switch (this.getBattlePhase()) {
-			case EARLY -> {
+			case EARLY:
 				for (int i = 0; i < PHASES_APPROACHING_TITANS[0].length; i++) {
 					int titan_code = PHASES_APPROACHING_TITANS[0][i];
 					TitanRegistry t = titansArchives.get(titan_code);
 					approachingTitans.add(t.spawnTitan(titanSpawnDistance));
 				}
-			}
-			case INTENSE -> {
+				break;
+			case INTENSE:
 				for (int i = 0; i < PHASES_APPROACHING_TITANS[1].length; i++) {
 					int titan_code = PHASES_APPROACHING_TITANS[1][i];
 					TitanRegistry t = titansArchives.get(titan_code);
 					approachingTitans.add(t.spawnTitan(titanSpawnDistance));
 				}
-			}
-			case GRUMBLING -> {
+				break;
+			case GRUMBLING:
 				for (int i = 0; i < PHASES_APPROACHING_TITANS[2].length; i++) {
 					int titan_code = PHASES_APPROACHING_TITANS[2][i];
 					TitanRegistry t = titansArchives.get(titan_code);
 					approachingTitans.add(t.spawnTitan(titanSpawnDistance));
 				}
-			}
+				break;
 		}
 	}
 
@@ -236,7 +236,7 @@ public class Battle {
 				if (approachingTitans.isEmpty()) {
 					refillApproachingTitans();
 				}
-				lane.addTitan(approachingTitans.removeFirst());
+				lane.addTitan(approachingTitans.remove(0));
 			}
 			lanes.add(lane);
 		}

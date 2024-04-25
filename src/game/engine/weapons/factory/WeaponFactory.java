@@ -28,14 +28,18 @@ public class WeaponFactory
 			throw new InsufficientResourcesException(resources);
 		} else {
 			resources -= weaponRegistry.getPrice();
-            return switch (weaponCode) {
-                case 1 -> new FactoryResponse(new PiercingCannon(weaponRegistry.getDamage()), resources);
-                case 2 -> new FactoryResponse(new SniperCannon(weaponRegistry.getDamage()), resources);
-                case 3 ->
-                        new FactoryResponse(new VolleySpreadCannon(weaponRegistry.getDamage(), weaponRegistry.getMinRange(), weaponRegistry.getMaxRange()), resources);
-                case 4 -> new FactoryResponse(new WallTrap(weaponRegistry.getDamage()), resources);
-                default -> null;
-            };
+            switch (weaponCode) {
+                case 1:
+                	return new FactoryResponse(new PiercingCannon(weaponRegistry.getDamage()), resources);
+                case 2:
+                	return new FactoryResponse(new SniperCannon(weaponRegistry.getDamage()), resources);
+                case 3:
+                    return new FactoryResponse(new VolleySpreadCannon(weaponRegistry.getDamage(), weaponRegistry.getMinRange(), weaponRegistry.getMaxRange()), resources);
+                case 4:
+                	return new FactoryResponse(new WallTrap(weaponRegistry.getDamage()), resources);
+                default: 
+                	return null;
+            }
 		}
 	}
 
