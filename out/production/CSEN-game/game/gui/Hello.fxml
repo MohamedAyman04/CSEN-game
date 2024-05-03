@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.gui.Hello">
+   <children>
+    <AnchorPane layoutX="137.0" layoutY="71.0" minHeight="0.0" minWidth="0.0" prefHeight="258.0" prefWidth="326.0">
+         <children>
+            <Label layoutX="48.0" layoutY="95.0" text="Hello there" textFill="#28fc44">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
