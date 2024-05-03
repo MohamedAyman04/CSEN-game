@@ -1,7 +1,5 @@
 package game.engine.titans;
 
-import game.engine.interfaces.Attackee;
-
 public class PureTitan extends Titan
 {
 	public static final int TITAN_CODE = 1;
@@ -11,6 +9,5 @@ public class PureTitan extends Titan
 	{
 		super(baseHealth, baseDamage, heightInMeters, distanceFromBase, speed, resourcesValue, dangerLevel);
 	}
-
 
 }

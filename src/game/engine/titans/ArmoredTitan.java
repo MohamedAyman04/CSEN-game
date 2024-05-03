@@ -1,7 +1,5 @@
 package game.engine.titans;
 
-import game.engine.interfaces.Attackee;
-
 public class ArmoredTitan extends Titan
 {
 	public static final int TITAN_CODE = 3;
@@ -11,8 +9,11 @@ public class ArmoredTitan extends Titan
 	{
 		super(baseHealth, baseDamage, heightInMeters, distanceFromBase, speed, resourcesValue, dangerLevel);
 	}
-	public int takeDamage(int damage) {
-		return super.takeDamage((int) (damage*0.25));
+
+	@Override
+	public int takeDamage(int damage)
+	{
+		return super.takeDamage(damage / 4);
 	}
 
 }

@@ -313,7 +313,7 @@ public class Milestone1PrivateTests {
 		Method setterMethod = superClass.getDeclaredMethod("setDistance",  int.class);
 		Method getterMethod = superClass.getDeclaredMethod("getDistance",  null);
 
-		int new_distance = (int) (Math.random() * 5)+1;
+		int new_distance = (int) (Math.random() * 5);
 		setterMethod.invoke(pureTitan,new_distance);
 		assertEquals(new_distance, getterMethod.invoke(pureTitan,null));
 
@@ -1375,7 +1375,7 @@ public class Milestone1PrivateTests {
 		int baseHealth = (int) (Math.random() * 100);
 		int baseDamage = (int) (Math.random() * 100);
 		int heightInMeters = (int) (Math.random() * 5);
-		int distanceFromBase = (int) (Math.random() * 5)+1;
+		int distanceFromBase = (int) (Math.random() * 5);
 		int speed = (int) (Math.random() * 5);
 		int dangerLevel = (int) (Math.random() * 5);
 		int resourcesValue = (int) (Math.random() * 5);
