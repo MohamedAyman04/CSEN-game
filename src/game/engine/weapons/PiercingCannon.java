@@ -1,7 +1,9 @@
 package game.engine.weapons;
 
-import game.engine.titans.Titan;
+import java.util.ArrayList;
 import java.util.PriorityQueue;
+
+import game.engine.titans.Titan;
 
 public class PiercingCannon extends Weapon
 {
@@ -13,23 +15,25 @@ public class PiercingCannon extends Weapon
 	}
 
 	@Override
-	public int turnAttack(PriorityQueue<Titan> laneTitans) {
-		Titan[] arr = new Titan[5];
-		int resourcesSoFar = 0;
+	public int turnAttack(PriorityQueue<Titan> laneTitans)
+	{
+		ArrayList<Titan> tmp = new ArrayList<>();
+		int attackRes = 0;
 
-		for (int i=0; !laneTitans.isEmpty() && i<5 ; i++) {
-			arr[i] = laneTitans.poll();
+		for (int i = 0; i < 5 && !laneTitans.isEmpty(); i++)
+		{
+			Titan nextTitan = laneTitans.poll();
+			attackRes += this.attack(nextTitan);
+
+			if (!nextTitan.isDefeated())
+			{
+				tmp.add(nextTitan);
+			}
 		}
 
-        for (int i=0; i<arr.length && arr[i] != null; i++) {
-				int resources = arr[i].takeDamage(super.getDamage());
-				if (resources == 0) {
-					laneTitans.add(arr[i]);
-				}
-				resourcesSoFar += resources;
-        }
+		laneTitans.addAll(tmp);
 
-		return resourcesSoFar;
+		return attackRes;
 	}
 
 }

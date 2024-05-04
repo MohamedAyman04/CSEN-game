@@ -11,11 +11,13 @@ public class AbnormalTitan extends Titan
 	{
 		super(baseHealth, baseDamage, heightInMeters, distanceFromBase, speed, resourcesValue, dangerLevel);
 	}
-	public int attack(Attackee target) {
-		int resources = super.attack(target);
-		if (!target.isDefeated()) {
-            return super.attack(target);
-		}
-		return resources;
+
+	@Override
+	public int attack(Attackee target)
+	{
+		int attackRes = super.attack(target);
+
+		return attackRes < 0 ? attackRes : super.attack(target);
 	}
+
 }

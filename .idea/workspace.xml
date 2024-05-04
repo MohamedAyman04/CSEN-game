@@ -4,11 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc25550d-3a94-4c13-8879-2d6fed575235" name="Changes" comment="" />
+    <list default="true" id="0d800c37-9e5f-4a7e-a89a-c166c35ce9bd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSEN-game/game/gui/Hello.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/gui/Hello.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/gui/Hello.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSEN-game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CSEN-game.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/titans.csv" beforeDir="false" afterPath="$PROJECT_DIR$/titans.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weapons.csv" beforeDir="false" afterPath="$PROJECT_DIR$/weapons.csv" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JavaFXApplication" />
+        <option value="module-info" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -16,7 +36,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2fN14VA1NNkhaRgqXv0uDrLM0Yt" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2fNKwdCSGRe5Noer8HUXCao3dwQ" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -24,12 +48,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "C:/Users/Ahmed Hamdy/AppData/Local/SceneBuilder/SceneBuilder.exe"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Neutral Files\GUC\Semester 4\Computer Lab\CSEN-game\src\game\gui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Neutral Files\GUC\Semester 4\Computer Lab\CSEN-game\src\game\gui" />
+      <recent name="F:\Neutral Files\GUC\Semester 4\Computer Lab\CSEN-game\src\game\gui\resources" />
+      <recent name="F:\Neutral Files\GUC\Semester 4\Computer Lab\CSEN-game\src\game\gui\java\com\example\hema" />
+      <recent name="F:\Neutral Files\GUC\Semester 4\Computer Lab\CSEN-game\src\game\tests" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Hello">
+    <configuration name="Hello" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="game.gui.Hello" />
+      <module name="CSEN-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Milestone2PrivateTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSEN-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="game.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="game.tests" />
+      <option name="MAIN_CLASS_NAME" value="game.tests.Milestone2PrivateTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="--add-opens java.base/java.util=ALL-UNNAMED" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Milestone2PublicTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSEN-game" />
       <extension name="coverage">
@@ -40,19 +105,43 @@
       </extension>
       <option name="PACKAGE_NAME" value="game.tests" />
       <option name="MAIN_CLASS_NAME" value="game.tests.Milestone2PublicTests" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="--add-opens java.base/java.util=ALL-UNNAMED" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Hello" />
+      <item itemvalue="JUnit.Milestone2PrivateTests" />
+      <item itemvalue="JUnit.Milestone2PublicTests" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Hello" />
+        <item itemvalue="JUnit.Milestone2PrivateTests" />
         <item itemvalue="JUnit.Milestone2PublicTests" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d800c37-9e5f-4a7e-a89a-c166c35ce9bd" name="Changes" comment="" />
+      <created>1713636336178</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713636336178</updated>
+    </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="game.engine.lanes.Lane" memberName="titans" />
+        <PinnedItemInfo parentTag="game.engine.Battle" memberName="lanes" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

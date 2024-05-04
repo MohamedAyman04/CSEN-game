@@ -1,7 +1,5 @@
 package game.engine.titans;
 
-import game.engine.interfaces.Attackee;
-
 public class ColossalTitan extends Titan
 {
 	public static final int TITAN_CODE = 4;
@@ -13,9 +11,10 @@ public class ColossalTitan extends Titan
 	}
 
 	@Override
-	public boolean move() {
-		boolean reached = super.move();
-		setSpeed(getSpeed()+1);
-		return reached;
+	public boolean move()
+	{
+		boolean moveResult = super.move();
+		this.setSpeed(this.getSpeed() + 1);
+		return moveResult;
 	}
 }

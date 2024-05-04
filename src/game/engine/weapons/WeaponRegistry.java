@@ -1,6 +1,7 @@
 package game.engine.weapons;
 
-public class WeaponRegistry {
+public class WeaponRegistry
+{
 	private final int code;
 	private int price;
 	private int damage;
@@ -8,13 +9,15 @@ public class WeaponRegistry {
 	private int minRange;
 	private int maxRange;
 
-	public WeaponRegistry(int code, int price) {
+	public WeaponRegistry(int code, int price)
+	{
 		super();
 		this.code = code;
 		this.price = price;
 	}
 
-	public WeaponRegistry(int code, int price, int damage, String name) {
+	public WeaponRegistry(int code, int price, int damage, String name)
+	{
 		super();
 		this.code = code;
 		this.price = price;
@@ -22,7 +25,8 @@ public class WeaponRegistry {
 		this.name = name;
 	}
 
-	public WeaponRegistry(int code, int price, int damage, String name, int minRange, int maxRange) {
+	public WeaponRegistry(int code, int price, int damage, String name, int minRange, int maxRange)
+	{
 		super();
 		this.code = code;
 		this.price = price;
@@ -32,43 +36,51 @@ public class WeaponRegistry {
 		this.maxRange = maxRange;
 	}
 
-	public int getCode() {
+	public int getCode()
+	{
 		return code;
 	}
 
-	public int getPrice() {
+	public int getPrice()
+	{
 		return price;
 	}
 
-	public int getDamage() {
+	public int getDamage()
+	{
 		return damage;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public int getMinRange() {
+	public int getMinRange()
+	{
 		return minRange;
 	}
 
-	public int getMaxRange() {
+	public int getMaxRange()
+	{
 		return maxRange;
 	}
 
-	public Weapon buildWeapon() {
-		if (code == 1) {
-			return new PiercingCannon(damage);
+	public Weapon buildWeapon()
+	{
+		switch (this.getCode())
+		{
+		case PiercingCannon.WEAPON_CODE:
+			return new PiercingCannon(this.getDamage());
+		case SniperCannon.WEAPON_CODE:
+			return new SniperCannon(this.getDamage());
+		case VolleySpreadCannon.WEAPON_CODE:
+			return new VolleySpreadCannon(this.getDamage(), this.getMinRange(), this.getMaxRange());
+		case WallTrap.WEAPON_CODE:
+			return new WallTrap(this.getDamage());
+		default:
+			return null;
 		}
-		if (code == 2) {
-			return new SniperCannon(damage);
-		}
-		if (code == 3) {
-			return new VolleySpreadCannon(damage, minRange, maxRange);
-		}
-		if (code == 4) {
-			return new WallTrap(damage);
-		}
-        return null;
-    }
+	}
+
 }

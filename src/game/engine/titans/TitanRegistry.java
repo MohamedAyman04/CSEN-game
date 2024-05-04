@@ -57,18 +57,31 @@ public class TitanRegistry // For storing the titan's information from the csv f
 	{
 		return dangerLevel;
 	}
-	public Titan spawnTitan(int distanceFromBase) {
-        return switch (code) {
-            case 1 ->
-                    new PureTitan(baseHealth, baseDamage, heightInMeters, distanceFromBase, speed, resourcesValue, dangerLevel);
-            case 2 ->
-                    new AbnormalTitan(baseHealth, baseDamage, heightInMeters, distanceFromBase, speed, resourcesValue, dangerLevel);
-            case 3 ->
-                    new ArmoredTitan(baseHealth, baseDamage, heightInMeters, distanceFromBase, speed, resourcesValue, dangerLevel);
-            case 4 ->
-                    new ColossalTitan(baseHealth, baseDamage, heightInMeters, distanceFromBase, speed, resourcesValue, dangerLevel);
-            default -> null;
-        };
+
+	public Titan spawnTitan(int distanceFromBase) // Spawns a specific type titan based on the code at the specified
+													// distance from base
+	{
+		switch (this.getCode())
+		{
+		case PureTitan.TITAN_CODE:
+			return new PureTitan(this.getBaseHealth(), this.getBaseDamage(), this.getHeightInMeters(), distanceFromBase,
+					this.getSpeed(), this.getResourcesValue(), this.getDangerLevel());
+
+		case AbnormalTitan.TITAN_CODE:
+			return new AbnormalTitan(this.getBaseHealth(), this.getBaseDamage(), this.getHeightInMeters(),
+					distanceFromBase, this.getSpeed(), this.getResourcesValue(), this.getDangerLevel());
+
+		case ArmoredTitan.TITAN_CODE:
+			return new ArmoredTitan(this.getBaseHealth(), this.getBaseDamage(), this.getHeightInMeters(),
+					distanceFromBase, this.getSpeed(), this.getResourcesValue(), this.getDangerLevel());
+
+		case ColossalTitan.TITAN_CODE:
+			return new ColossalTitan(this.getBaseHealth(), this.getBaseDamage(), this.getHeightInMeters(),
+					distanceFromBase, this.getSpeed(), this.getResourcesValue(), this.getDangerLevel());
+
+		default:
+			return null;
+		}
 	}
 
 }
