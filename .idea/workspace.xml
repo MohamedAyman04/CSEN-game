@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cdd61e92-6c1e-4371-86e6-dc2d83c6bef3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/game/gui/Instructions.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/gui/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/gui/Start_Menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSEN-game/game/gui/Intro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSEN-game/game/gui/Intro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/engine/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/engine/Battle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/Intro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Intro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/titans.csv" beforeDir="false" afterPath="$PROJECT_DIR$/titans.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weapons.csv" beforeDir="false" afterPath="$PROJECT_DIR$/weapons.csv" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2gDjGvazWxbLlnwxjmM7pf0rUbr" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cdd61e92-6c1e-4371-86e6-dc2d83c6bef3" name="Changes" comment="" />
+      <created>1715238951525</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715238951525</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="game.engine.lanes.Lane" memberName="titans" />
+        <PinnedItemInfo parentTag="game.engine.Battle" memberName="lanes" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

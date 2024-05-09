@@ -201,22 +201,24 @@ public class Battle
 	{
 		performTurn();
 	}
-
+	
 	private void addTurnTitansToLane()
 	{
-		Lane leastDangerLane = this.getLanes().poll();
+		if(this.getLanes().peek() != null) {
+			Lane leastDangerLane = this.getLanes().poll();
 
-		for (int i = 0; i < this.getNumberOfTitansPerTurn(); i++)
-		{
-			if (this.getApproachingTitans().isEmpty())
+			for (int i = 0; i < this.getNumberOfTitansPerTurn(); i++)
 			{
-				this.refillApproachingTitans();
+				if (this.getApproachingTitans().isEmpty())
+				{
+					this.refillApproachingTitans();
+				}
+
+				leastDangerLane.addTitan(this.getApproachingTitans().remove(0));
 			}
 
-			leastDangerLane.addTitan(this.getApproachingTitans().remove(0));
+			this.getLanes().add(leastDangerLane);
 		}
-
-		this.getLanes().add(leastDangerLane);
 	}
 
 	private void moveTitans()

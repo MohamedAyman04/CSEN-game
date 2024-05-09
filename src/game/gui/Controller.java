@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -31,14 +32,33 @@ public class Controller extends Application implements Initializable {
 
     @FXML
     private MediaView mediaView;
-    MediaPlayer mediaPlayer;
-    Stage stage;
-    Scene scene;
+    private MediaPlayer mediaPlayer;
+    private Stage stage;
+    private Scene scene;
+    private Model model;
 
-    public void switchToGame(ActionEvent event) throws IOException {
+    public void easyGameMode(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Controller.class.getResource("Instructions.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        model = new Model(3, 250);
+        stage.show();
+    }
+
+    public void hardGameMode(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Controller.class.getResource("Instructions.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        model = new Model(5, 125);
+        stage.show();
+    }
+
+    public void startMenu(ActionEvent event) throws IOException {
         mediaPlayer.stop();
         mediaPlayer.dispose();
-        FXMLLoader fxmlLoader = new FXMLLoader(Controller.class.getResource("Game.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Controller.class.getResource("Start_Menu.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
