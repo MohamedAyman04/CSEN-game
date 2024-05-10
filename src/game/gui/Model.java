@@ -1,11 +1,52 @@
 package game.gui;
 
 import game.engine.Battle;
+import game.engine.BattlePhase;
+import game.engine.lanes.Lane;
+import game.engine.weapons.WeaponRegistry;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.PriorityQueue;
 
 public class Model {
+    private final int numberLanes;
+    private final Battle battle;
+
     public Model (int numLanes, int initialResources) throws IOException {
-        Battle battle = new Battle(0, 0, 100, numLanes, initialResources);
+        numberLanes = numLanes;
+        battle = new Battle(1, 0, 100, numLanes, initialResources);
+    }
+
+    public HashMap<Integer, WeaponRegistry> getWeaponShop() {
+        return battle.getWeaponFactory().getWeaponShop();
+    }
+
+    public void pass() {
+        battle.passTurn();
+    }
+
+    public PriorityQueue<Lane> getLanes() {
+        return battle.getLanes();
+    }
+
+    public int getScore() {
+        return battle.getScore();
+    }
+
+    public int getCurrentResources() {
+        return battle.getResourcesGathered();
+    }
+
+    public BattlePhase getPhase() {
+        return battle.getBattlePhase();
+    }
+
+    public int getCurrentTurn() {
+        return battle.getNumberOfTurns();
+    }
+
+    public int getNumLanes() {
+        return numberLanes;
     }
 }

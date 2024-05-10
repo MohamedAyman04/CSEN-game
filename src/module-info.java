@@ -7,5 +7,8 @@ module CSEN.game {
 
     exports game.tests;
     exports game.gui;
+    exports game.engine;
+    exports game.engine.lanes;
+    exports game.engine.weapons;
     opens game.gui;
 }
