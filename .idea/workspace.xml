@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d800c37-9e5f-4a7e-a89a-c166c35ce9bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/CSEN-game/game/gui/Hello.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/gui/Hello.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/gui/Hello.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSEN-game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CSEN-game.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/titans.csv" beforeDir="false" afterPath="$PROJECT_DIR$/titans.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weapons.csv" beforeDir="false" afterPath="$PROJECT_DIR$/weapons.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +42,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "C:/Users/Ahmed Hamdy/AppData/Local/SceneBuilder/SceneBuilder.exe"
   }
 }]]></component>
