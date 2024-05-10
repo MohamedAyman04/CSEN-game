@@ -7,15 +7,17 @@ public interface Attackee
 	void setCurrentHealth(int health);
 
 	int getResourcesValue();
-	default int takeDamage(int damage) {
-		if(getCurrentHealth() - damage <= 0) {
-			setCurrentHealth(0);
-			return getResourcesValue();
-		}
-		setCurrentHealth(getCurrentHealth() - damage);
-		return 0;
-	}
-	default boolean isDefeated() {
+
+	default boolean isDefeated()
+	{
 		return getCurrentHealth() <= 0;
 	}
+
+	default int takeDamage(int damage) // returns resources won if the attackee dies
+	{
+		this.setCurrentHealth(getCurrentHealth() - damage);
+
+		return isDefeated() ? getResourcesValue() : 0;
+	}
+
 }

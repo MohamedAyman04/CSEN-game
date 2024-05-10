@@ -1,9 +1,9 @@
 package game.engine.weapons;
 
-import game.engine.titans.Titan;
-
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+
+import game.engine.titans.Titan;
 
 public class VolleySpreadCannon extends Weapon
 {
@@ -30,22 +30,28 @@ public class VolleySpreadCannon extends Weapon
 	}
 
 	@Override
-	public int turnAttack(PriorityQueue<Titan> laneTitans) {
-		int resourcesSoFar = 0;
-		ArrayList<Titan> arr = new ArrayList<>();
-		while (!laneTitans.isEmpty()) {
-			Titan titan = laneTitans.poll();
-			if (titan.getDistance() >= minRange && titan.getDistance() <= maxRange) {
-				int resources = titan.takeDamage(super.getDamage());
-				if (!titan.isDefeated()) {
-					arr.add(titan);
-				}
-				resourcesSoFar += resources;
-			} else {
-				arr.add(titan);
+	public int turnAttack(PriorityQueue<Titan> laneTitans)
+	{
+		ArrayList<Titan> tmp = new ArrayList<>();
+		int attackRes = 0;
+
+		while (!laneTitans.isEmpty() && laneTitans.peek().getDistance() <= this.getMaxRange())
+		{
+			Titan nextTitan = laneTitans.poll();
+			if (nextTitan.getDistance() >= getMinRange())
+			{
+				attackRes += this.attack(nextTitan);
+			}
+
+			if (!nextTitan.isDefeated())
+			{
+				tmp.add(nextTitan);
 			}
 		}
-		laneTitans.addAll(arr);
-		return resourcesSoFar;
+
+		laneTitans.addAll(tmp);
+
+		return attackRes;
 	}
+
 }

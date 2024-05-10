@@ -2,10 +2,11 @@ package game.engine.weapons.factory;
 
 import java.io.IOException;
 import java.util.HashMap;
-import game.engine.exceptions.InsufficientResourcesException;
 
 import game.engine.dataloader.DataLoader;
-import game.engine.weapons.*;
+import game.engine.exceptions.InsufficientResourcesException;
+import game.engine.weapons.Weapon;
+import game.engine.weapons.WeaponRegistry;
 
 public class WeaponFactory
 {
@@ -22,39 +23,34 @@ public class WeaponFactory
 		return weaponShop;
 	}
 
-	public FactoryResponse buyWeapon(int resources, int weaponCode) throws InsufficientResourcesException {
-		WeaponRegistry weaponRegistry = weaponShop.get(weaponCode);
-		if (resources < weaponRegistry.getPrice()) {
+	public FactoryResponse buyWeapon(int resources, int weaponCode) throws InsufficientResourcesException
+	{
+		WeaponRegistry registry = this.getWeaponShop().get(weaponCode);
+
+		if (resources < registry.getPrice())
+		{
 			throw new InsufficientResourcesException(resources);
-		} else {
-			resources -= weaponRegistry.getPrice();
-            switch (weaponCode) {
-                case 1:
-                	return new FactoryResponse(new PiercingCannon(weaponRegistry.getDamage()), resources);
-                case 2:
-                	return new FactoryResponse(new SniperCannon(weaponRegistry.getDamage()), resources);
-                case 3:
-                    return new FactoryResponse(new VolleySpreadCannon(weaponRegistry.getDamage(), weaponRegistry.getMinRange(), weaponRegistry.getMaxRange()), resources);
-                case 4:
-                	return new FactoryResponse(new WallTrap(weaponRegistry.getDamage()), resources);
-                default: 
-                	return null;
-            }
 		}
+
+		Weapon weapon = registry.buildWeapon();
+		int remainingResources = resources - registry.getPrice();
+
+		return new FactoryResponse(weapon, remainingResources);
 	}
 
-	public void addWeaponToShop(int code, int price) {
-		WeaponRegistry weaponRegistry = new WeaponRegistry(code, price);
-		weaponShop.put(code, weaponRegistry);
+	public void addWeaponToShop(int code, int price)
+	{
+		this.getWeaponShop().put(code, new WeaponRegistry(code, price));
 	}
 
-	public void addWeaponToShop(int code, int price, int damage, String name) {
-		WeaponRegistry weaponRegistry = new WeaponRegistry(code, price, damage, name);
-		weaponShop.put(code, weaponRegistry);
+	public void addWeaponToShop(int code, int price, int damage, String name)
+	{
+		this.getWeaponShop().put(code, new WeaponRegistry(code, price, damage, name));
 	}
 
-	public void addWeaponToShop(int code, int price, int damage, String name, int minRange, int maxRange) {
-		WeaponRegistry weaponRegistry = new WeaponRegistry(code, price, damage, name, minRange, maxRange);
-		weaponShop.put(code, weaponRegistry);
+	public void addWeaponToShop(int code, int price, int damage, String name, int minRange, int maxRange)
+	{
+		this.getWeaponShop().put(code, new WeaponRegistry(code, price, damage, name, minRange, maxRange));
 	}
+
 }
