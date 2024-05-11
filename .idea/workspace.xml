@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d53d000c-457f-4e4e-8af0-7becf7aa37c4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/game/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Game.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="game.engine.lanes.Lane" memberName="titans" />
+        <PinnedItemInfo parentTag="game.engine.Battle" memberName="lanes" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>
