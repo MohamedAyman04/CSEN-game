@@ -15,7 +15,7 @@ public class Model {
 
     public Model (int numLanes, int initialResources) throws IOException {
         numberLanes = numLanes;
-        battle = new Battle(1, 0, 100, numLanes, initialResources);
+        battle = new Battle(1, 0, 700, numLanes, initialResources);
     }
 
     public HashMap<Integer, WeaponRegistry> getWeaponShop() {
@@ -48,5 +48,9 @@ public class Model {
 
     public int getNumLanes() {
         return numberLanes;
+    }
+
+    public int getTitanSpawnDistance() {
+        return battle.getTitanSpawnDistance();
     }
 }
