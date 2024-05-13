@@ -80,10 +80,6 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="20.0" layoutY="183.0" mnemonicParsing="false" style="-fx-background-color: navy; -fx-background-radius: 10; -fx-cursor: hand;" text="Buy Weapon" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font></Button>
       <Button layoutX="20.0" layoutY="308.0" mnemonicParsing="false" style="-fx-background-color: navy; -fx-background-radius: 10; -fx-cursor: hand;" text="Buy Weapon" textFill="WHITE">
          <font>
             <Font size="18.0" />
@@ -115,6 +111,11 @@
       <Button layoutX="311.0" layoutY="546.0" mnemonicParsing="false" onAction="#pass" prefHeight="40.0" prefWidth="149.0" style="-fx-background-color: blue; -fx-background-radius: 10; -fx-cursor: hand;" text="Pass Turn" textFill="WHITE">
          <font>
             <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="20.0" layoutY="178.0" mnemonicParsing="false" onAction="#handel_createList" style="-fx-background-color: navy; -fx-background-radius: 10; -fx-cursor: hand;" text="Buy Weapon" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
          </font>
       </Button>
    </children>
