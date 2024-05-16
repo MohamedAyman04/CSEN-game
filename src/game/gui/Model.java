@@ -2,12 +2,19 @@ package game.gui;
 
 import game.engine.Battle;
 import game.engine.BattlePhase;
+
 import game.engine.exceptions.InsufficientResourcesException;
+
+import game.engine.base.Wall;
+import game.engine.exceptions.InsufficientResourcesException;
+import game.engine.exceptions.InvalidLaneException;
+
 import game.engine.lanes.Lane;
 import game.engine.weapons.WeaponRegistry;
 import game.engine.weapons.factory.FactoryResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
@@ -56,5 +63,21 @@ public class Model {
         return battle.getTitanSpawnDistance();
     }
 
+
     public FactoryResponse buyWeapon(int res , int code) throws InsufficientResourcesException {return battle.getWeaponFactory().buyWeapon(res,code) ;}
+
+    public ArrayList<Integer> DangerLevel() {
+        PriorityQueue<Lane> temp = new PriorityQueue<>(battle.getLanes());
+        ArrayList<Integer> lanesDangerLevel = new ArrayList<>();
+        while (!temp.isEmpty()) {
+            Lane lane = temp.poll();
+            lanesDangerLevel.add(lane.getDangerLevel());
+        }
+        return lanesDangerLevel;
+    }
+
+    public void purchaseWeapon(int code, Lane lane) throws InvalidLaneException, InsufficientResourcesException {
+        battle.purchaseWeapon(code, lane);
+    }
+
 }

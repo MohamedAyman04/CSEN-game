@@ -10,5 +10,6 @@ module CSEN.game {
     exports game.engine;
     exports game.engine.lanes;
     exports game.engine.weapons;
+    exports game.engine.exceptions;
     opens game.gui;
 }

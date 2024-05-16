@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="25a70dc9-2cd9-4871-8942-78710d1d6f25" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/out/production/CSEN-game/game/gui/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSEN-game/game/gui/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="game.engine.lanes.Lane" memberName="titans" />
+        <PinnedItemInfo parentTag="game.engine.Battle" memberName="lanes" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

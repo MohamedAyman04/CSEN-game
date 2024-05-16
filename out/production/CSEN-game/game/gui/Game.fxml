@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="633.0" prefWidth="792.0" style="-fx-background-image: url('grass.jpg'); -fx-background-repeat: no-repeat; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.gui.Controller">
+<AnchorPane prefHeight="723.0" prefWidth="896.0" style="-fx-background-image: url('grass.jpg'); -fx-background-repeat: no-repeat; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.gui.Controller">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="178.0" layoutY="158.0" stroke="BLACK" strokeType="INSIDE" width="554.0">
          <fill>
@@ -28,7 +28,7 @@
                </stops>
             </LinearGradient>
          </fill></Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="178.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="554.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="178.0" layoutY="321.0" stroke="BLACK" strokeType="INSIDE" width="554.0">
          <fill>
             <LinearGradient endX="1.0">
                <stops>
@@ -45,7 +45,7 @@
                </stops>
             </LinearGradient>
          </fill></Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="178.0" layoutY="401.0" stroke="BLACK" strokeType="INSIDE" width="554.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="178.0" layoutY="489.0" stroke="BLACK" strokeType="INSIDE" width="554.0">
          <fill>
             <LinearGradient endX="1.0">
                <stops>
@@ -63,28 +63,28 @@
             </LinearGradient>
          </fill></Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="178.0" layoutY="158.0" stroke="BLACK" strokeType="INSIDE" width="53.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="178.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="53.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="178.0" layoutY="401.0" stroke="BLACK" strokeType="INSIDE" width="53.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="178.0" layoutY="321.0" stroke="BLACK" strokeType="INSIDE" width="53.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="80.0" layoutX="177.0" layoutY="489.0" stroke="BLACK" strokeType="INSIDE" width="53.0" />
       <Label layoutX="185.0" layoutY="187.0" text="Wall" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="185.0" layoutY="312.0" text="Wall" textFill="WHITE">
+      <Label layoutX="185.0" layoutY="350.0" text="Wall" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="185.0" layoutY="430.0" text="Wall" textFill="WHITE">
+      <Label layoutX="184.0" layoutY="518.0" text="Wall" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="20.0" layoutY="308.0" mnemonicParsing="false" style="-fx-background-color: navy; -fx-background-radius: 10; -fx-cursor: hand;" text="Buy Weapon" textFill="WHITE">
+      <Button fx:id="B2" layoutX="20.0" layoutY="346.0" mnemonicParsing="false" onAction="#handle_create_weapon_List" style="-fx-background-color: navy; -fx-background-radius: 10; -fx-cursor: hand;" text="Buy Weapon" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button layoutX="20.0" layoutY="426.0" mnemonicParsing="false" style="-fx-background-color: navy; -fx-background-radius: 10; -fx-cursor: hand;" text="Buy Weapon" textFill="WHITE">
+      <Button fx:id="B3" layoutX="20.0" layoutY="514.0" mnemonicParsing="false" onAction="#handle_create_weapon_List" style="-fx-background-color: navy; -fx-background-radius: 10; -fx-cursor: hand;" text="Buy Weapon" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -103,20 +103,23 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="Resources" layoutX="140.0" layoutY="27.0" prefHeight="40.0" prefWidth="149.0" style="-fx-font-weight: bold;" text="Resources: 0" textFill="WHITE">
+      <Label fx:id="Resources" layoutX="140.0" layoutY="27.0" prefHeight="40.0" prefWidth="149.0" style="-fx-font-weight: bold;" text="Resources: 750" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="311.0" layoutY="546.0" mnemonicParsing="false" onAction="#pass" prefHeight="40.0" prefWidth="149.0" style="-fx-background-color: blue; -fx-background-radius: 10; -fx-cursor: hand;" text="Pass Turn" textFill="WHITE">
+      <Button layoutX="374.0" layoutY="620.0" mnemonicParsing="false" onAction="#pass" prefHeight="40.0" prefWidth="149.0" style="-fx-background-color: blue; -fx-background-radius: 10; -fx-cursor: hand;" text="Pass Turn" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="20.0" layoutY="178.0" mnemonicParsing="false" onAction="#handel_create_weapon_List" style="-fx-background-color: navy; -fx-background-radius: 10; -fx-cursor: hand;" text="Buy Weapon" textFill="WHITE">
+      <Button fx:id="B1" layoutX="20.0" layoutY="178.0" mnemonicParsing="false" onAction="#handle_create_weapon_List" style="-fx-background-color: navy; -fx-background-radius: 10; -fx-cursor: hand;" text="Buy Weapon" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <Label fx:id="Lane1" layoutX="180.0" layoutY="121.0" prefHeight="30.0" prefWidth="186.0" style="-fx-font-weight: bold;" text="Danger Level: 0" textFill="WHITE" />
+      <Label fx:id="Lane2" layoutX="177.0" layoutY="284.0" prefHeight="30.0" prefWidth="186.0" style="-fx-font-weight: bold;" text="Danger Level: 0" textFill="WHITE" />
+      <Label fx:id="Lane3" layoutX="177.0" layoutY="452.0" prefHeight="30.0" prefWidth="186.0" style="-fx-font-weight: bold;" text="Danger Level: 0" textFill="WHITE" />
    </children>
 </AnchorPane>
