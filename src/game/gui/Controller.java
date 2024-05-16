@@ -1,10 +1,10 @@
 package game.gui;
 
 import game.engine.lanes.Lane;
+import game.engine.titans.*;
 import game.engine.weapons.Weapon;
 import game.engine.weapons.WeaponRegistry;
 import game.engine.weapons.factory.WeaponFactory;
-import game.engine.titans.Titan;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -121,7 +121,15 @@ public class Controller implements Initializable {
                 Titan titan = lane.getTitans().poll();
                 temp2.add(titan);
                 if (titan != null) {
-                    Node node = view.spawnTitans(titan.getDistance(), lanes.get(counter).getLayoutY() + (y/5), titan.getHeightInMeters());
+                    Node node;
+                    if (titan instanceof PureTitan)
+                        node = view.spawnTitans(titan.getDistance(), lanes.get(counter).getLayoutY() + (y/5), titan.getHeightInMeters(), 1);
+                    else if (titan instanceof ArmoredTitan)
+                        node = view.spawnTitans(titan.getDistance(), lanes.get(counter).getLayoutY() + (y/5), titan.getHeightInMeters(), 2);
+                    else if (titan instanceof AbnormalTitan)
+                        node = view.spawnTitans(titan.getDistance(), lanes.get(counter).getLayoutY() + (y/5), titan.getHeightInMeters(), 3);
+                    else
+                        node = view.spawnTitans(titan.getDistance(), lanes.get(counter).getLayoutY() + (y/5), titan.getHeightInMeters(), 4);
                     removal.add(node);
                     root.getChildren().add(node);
                 }
