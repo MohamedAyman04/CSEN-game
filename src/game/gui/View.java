@@ -14,17 +14,17 @@ public class View {
         rectangle.setFill(Color.RED);
         return rectangle;
     }
-    public Node createWeapon(double x, double y,String type) {
+    public Node bWeapon(double x, double y,int code) {
         Rectangle rectangle = new Rectangle();
         rectangle.setWidth(6);
         rectangle.setHeight(4);
         rectangle.setX(x);
         rectangle.setY(y);
-        switch (type){
-            case "Piercing Cannon" :rectangle.setFill(Color.BLACK);
-            case "Sniper Cannon" :rectangle.setFill(Color.RED);
-            case "VolleySpread Cannon" :rectangle.setFill(Color.GREEN);
-            case " Wall trap" :rectangle.setFill(Color.ORANGE);
+        switch (code){
+            case 1 :rectangle.setFill(Color.BLACK);
+            case 2 :rectangle.setFill(Color.RED);
+            case 3 :rectangle.setFill(Color.GREEN);
+            case 4 :rectangle.setFill(Color.ORANGE);
         }
         return rectangle;
     }

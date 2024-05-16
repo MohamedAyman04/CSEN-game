@@ -2,8 +2,10 @@ package game.gui;
 
 import game.engine.Battle;
 import game.engine.BattlePhase;
+import game.engine.exceptions.InsufficientResourcesException;
 import game.engine.lanes.Lane;
 import game.engine.weapons.WeaponRegistry;
+import game.engine.weapons.factory.FactoryResponse;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -53,4 +55,6 @@ public class Model {
     public int getTitanSpawnDistance() {
         return battle.getTitanSpawnDistance();
     }
+
+    public FactoryResponse buyWeapon(int res , int code) throws InsufficientResourcesException {return battle.getWeaponFactory().buyWeapon(res,code) ;}
 }

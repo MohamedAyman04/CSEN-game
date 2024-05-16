@@ -1,5 +1,6 @@
 package game.gui;
 
+import game.engine.exceptions.InsufficientResourcesException;
 import game.engine.lanes.Lane;
 import game.engine.weapons.Weapon;
 import game.engine.weapons.WeaponRegistry;
@@ -176,6 +177,23 @@ public class Controller implements Initializable {
         ObservableList items = FXCollections.observableArrayList(
                 arr
         );
+        for (int i = 0; i < arr.size(); i++) {
+            WeaponRegistry item = (WeaponRegistry) w.get(i+1);
+            Button bu = (Button) arr.get(i);
+            int price = item.getPrice();
+            int code = item.getCode();
+            bu.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle (ActionEvent event) {
+                    try {
+                        model.buyWeapon(price,code) ;
+                    } catch (InsufficientResourcesException e) {
+                        throw new RuntimeException(e);
+                    }
+                    view.bWeapon(100,100,code);
+                }
+            });
+        }
         listView.setItems(items);
         listView.setPrefSize(150, 150);
         VBox r = new VBox();
