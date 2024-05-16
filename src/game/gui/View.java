@@ -16,27 +16,34 @@ public class View {
                 rectangle.setFill(Color.RED);
                 break;
             case 2:
-                rectangle.setFill(Color.WHITE);
+                rectangle.setFill(Color.DARKGRAY);
                 break;
             case 3:
                 rectangle.setFill(Color.BLACK);
                 break;
             default:
-                rectangle.setFill(Color.YELLOW);
+                rectangle.setFill(Color.DARKORANGE);
         }
         return rectangle;
     }
-    public Node createWeapon(double x, double y,String type) {
+    public Node createWeapon(double x, double y, String type) {
         Rectangle rectangle = new Rectangle();
-        rectangle.setWidth(6);
-        rectangle.setHeight(4);
+        rectangle.setWidth(20);
+        rectangle.setHeight(10);
         rectangle.setX(x);
         rectangle.setY(y);
         switch (type){
-            case "Piercing Cannon" :rectangle.setFill(Color.BLACK);
-            case "Sniper Cannon" :rectangle.setFill(Color.RED);
-            case "VolleySpread Cannon" :rectangle.setFill(Color.GREEN);
-            case " Wall trap" :rectangle.setFill(Color.ORANGE);
+            case "Piercing Cannon":
+                rectangle.setFill(Color.BLACK);
+                break;
+            case "Sniper Cannon":
+                rectangle.setFill(Color.RED);
+                break;
+            case "VolleySpread Cannon":
+                rectangle.setFill(Color.GREEN);
+                break;
+            default:
+                rectangle.setFill(Color.ORANGE);
         }
         return rectangle;
     }
