@@ -8,6 +8,7 @@ import game.engine.weapons.factory.WeaponFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,6 +29,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
+
+
 
 public class Controller implements Initializable {
 
@@ -155,31 +158,44 @@ public class Controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    public void handel_createList() throws IOException {
+    public void handel_create_weapon_List(ActionEvent event) throws IOException {
         HashMap w =  model.getWeaponShop();
-        ListView<String> listView = new ListView<>();
+        ListView<Button> listView = new ListView<>();
+        Button b ;
         ArrayList arr = new ArrayList<>();
         for (int i = 0; i < w.size(); i++) {
-            WeaponRegistry item = (WeaponRegistry) w.get(i);
-            arr.add(i,item);
+            WeaponRegistry item = (WeaponRegistry) w.get(i+1);
+            String weapon = "Name: "+item.getName()+" Damage: "+item.getDamage()+" Price: "+item.getPrice();
+            String type="";
+            switch (i+1){
+                case 1: type="Piercing Cannon";
+                break;
+                case 2: type="Sniper Cannon";
+                break;
+                case 3: type="VolleySpread Cannon";
+                break;
+                case 4: type="Wall trap";
+                break;
+            }
+            weapon = weapon+ " type: "+type;
+            b = new Button(weapon);
+            arr.add(i,b);
         }
         ObservableList items = FXCollections.observableArrayList(
                 arr
         );
         listView.setItems(items);
-
-        VBox root = new VBox();
-
-        // Add the ListView to the VBox
-        root.getChildren().add(listView);
-    }
-    public void buyWeapon(ActionEvent event) throws  IOException {
-        FXMLLoader fxmlLoader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("weapons.fxml")));
+        listView.setPrefSize(150, 150);
+        VBox r = new VBox();
+        r.getChildren().add(listView);
+        root.getChildren().add(r);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
+        scene = stage.getScene();
+        scene.setRoot(root);
         stage.show();
+
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File file = new File("intro.mp4");

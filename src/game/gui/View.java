@@ -26,4 +26,18 @@ public class View {
         }
         return rectangle;
     }
+    public Node createWeapon(double x, double y,String type) {
+        Rectangle rectangle = new Rectangle();
+        rectangle.setWidth(6);
+        rectangle.setHeight(4);
+        rectangle.setX(x);
+        rectangle.setY(y);
+        switch (type){
+            case "Piercing Cannon" :rectangle.setFill(Color.BLACK);
+            case "Sniper Cannon" :rectangle.setFill(Color.RED);
+            case "VolleySpread Cannon" :rectangle.setFill(Color.GREEN);
+            case " Wall trap" :rectangle.setFill(Color.ORANGE);
+        }
+        return rectangle;
+    }
 }

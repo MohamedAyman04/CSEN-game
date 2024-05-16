@@ -113,7 +113,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="20.0" layoutY="178.0" mnemonicParsing="false" onAction="#handel_createList" style="-fx-background-color: navy; -fx-background-radius: 10; -fx-cursor: hand;" text="Buy Weapon" textFill="WHITE">
+      <Button layoutX="20.0" layoutY="178.0" mnemonicParsing="false" onAction="#handel_create_weapon_List" style="-fx-background-color: navy; -fx-background-radius: 10; -fx-cursor: hand;" text="Buy Weapon" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
