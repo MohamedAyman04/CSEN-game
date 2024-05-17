@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25a70dc9-2cd9-4871-8942-78710d1d6f25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/game/gui/hard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSEN-game/game/gui/Game.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/gui/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/easy.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/gui/Instructions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Instructions.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/gui/Intro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Intro.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/gui/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/gui/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/easy.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/easy.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/hard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/hard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +29,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2gYbVvYeWtpxXI0XO9h8Y19CgWr" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -45,13 +40,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="25a70dc9-2cd9-4871-8942-78710d1d6f25" name="Changes" comment="" />
+      <created>1715957679945</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715957679945</updated>
+    </task>
     <servers />
   </component>
   <component name="XDebuggerManager">

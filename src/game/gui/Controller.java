@@ -100,7 +100,8 @@ public class Controller implements Initializable {
         easy = true;
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("easy.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        for (int i=0; i<model.getNumLanes(); i++) {
+        model = new Model(3, 250);
+        for (int i=0; i<model.getLanes().size(); i++) {
             lanes.add((Rectangle) root.getChildren().get(i));
         }
         scene = new Scene(root);
@@ -112,8 +113,8 @@ public class Controller implements Initializable {
         easy = false;
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hard.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        System.out.println(model.getNumLanes());
-        for (int i=0; i<model.getNumLanes(); i++) {
+        model = new Model(5, 125);
+        for (int i=0; i<model.getLanes().size(); i++) {
             lanes.add((Rectangle) root.getChildren().get(i));
         }
         scene = new Scene(root);
@@ -228,17 +229,50 @@ public class Controller implements Initializable {
                 Titan titan = lane.getTitans().poll();
                 temp2.add(titan);
                 if (titan != null) {
+                    double distance = (titan.getDistance() * 4.69) + 231;
                     Node node;
-                    if (titan instanceof PureTitan)
-                        node = view.spawnTitans(titan.getDistance() * 7, lanes.get(counter).getLayoutY() + (y/5), titan.getHeightInMeters(), 1);
-                    else if (titan instanceof AbnormalTitan)
-                        node = view.spawnTitans(titan.getDistance()  * 7, lanes.get(counter).getLayoutY() + (y/5), titan.getHeightInMeters(), 2);
-                    else if (titan instanceof ArmoredTitan)
-                        node = view.spawnTitans(titan.getDistance()  * 7, lanes.get(counter).getLayoutY() + (y/5), titan.getHeightInMeters(), 3);
-                    else
-                        node = view.spawnTitans(titan.getDistance()  * 7, lanes.get(counter).getLayoutY() + (y/5), titan.getHeightInMeters(), 4);
+                    ProgressBar progressBar = new ProgressBar(1);
+                    progressBar.setStyle("-fx-accent: green");
+                    if (titan instanceof PureTitan) {
+                        node = view.spawnTitans(distance, lanes.get(counter).getLayoutY() + (y / 5), titan.getHeightInMeters(), 1);
+                        progressBar.setProgress((double) titan.getCurrentHealth() / 100);
+                        if ((double) titan.getCurrentHealth() / 100 < 0.333333) {
+                            progressBar.setStyle("-fx-accent: red");
+                        } else if ((double) titan.getCurrentHealth() / 100 < 0.66666) {
+                            progressBar.setStyle("-fx-accent: yellow");
+                        }
+                    } else if (titan instanceof AbnormalTitan) {
+                        node = view.spawnTitans(distance, lanes.get(counter).getLayoutY() + (y / 5), titan.getHeightInMeters(), 2);
+                        progressBar.setProgress((double) titan.getCurrentHealth() / 100);
+                        if ((double) titan.getCurrentHealth() / 100 < 0.333333) {
+                            progressBar.setStyle("-fx-accent: red");
+                        } else if ((double) titan.getCurrentHealth() / 100 < 0.66666) {
+                            progressBar.setStyle("-fx-accent: yellow");
+                        }
+                    } else if (titan instanceof ArmoredTitan) {
+                        node = view.spawnTitans(distance, lanes.get(counter).getLayoutY() + (y / 5), titan.getHeightInMeters(), 3);
+                        progressBar.setProgress((double) titan.getCurrentHealth() / 200);
+                        if ((double) titan.getCurrentHealth() / 200 < 0.333333) {
+                            progressBar.setStyle("-fx-accent: red");
+                        } else if ((double) titan.getCurrentHealth() / 200 < 0.66666) {
+                            progressBar.setStyle("-fx-accent: yellow");
+                        }
+                    } else {
+                        node = view.spawnTitans(distance, lanes.get(counter).getLayoutY() + (y / 5), titan.getHeightInMeters(), 4);
+                        progressBar.setProgress((double) titan.getCurrentHealth() / 1000);
+                        if ((double) titan.getCurrentHealth() / 1000 < 0.333333) {
+                            progressBar.setStyle("-fx-accent: red");
+                        } else if ((double) titan.getCurrentHealth() / 1000 < 0.66666) {
+                            progressBar.setStyle("-fx-accent: yellow");
+                        }
+                    }
+                    progressBar.setLayoutX(distance - 10);
+                    progressBar.setLayoutY(lanes.get(counter).getLayoutY() + (y / 5) + 20);
+                    progressBar.setPrefSize(20, 13);
                     removal.add(node);
+                    removal.add(progressBar);
                     root.getChildren().add(node);
+                    root.getChildren().add(progressBar);
                 }
             }
             while(!temp2.isEmpty()) {

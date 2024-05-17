@@ -16,11 +16,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Model {
-    private final int numberLanes;
     private final Battle battle;
 
     public Model (int numLanes, int initialResources) throws IOException {
-        numberLanes = numLanes;
         battle = new Battle(1, 0, 100, numLanes, initialResources);
     }
 
@@ -50,10 +48,6 @@ public class Model {
 
     public int getCurrentTurn() {
         return battle.getNumberOfTurns();
-    }
-
-    public int getNumLanes() {
-        return numberLanes;
     }
 
     public int getTitanSpawnDistance() {
