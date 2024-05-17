@@ -94,13 +94,14 @@ public class Controller implements Initializable {
     @FXML
     private Button startMenu;
     private static boolean easy;
-    private static double[] weaponDistance = {100, 100, 100, 100, 100};
+    private static double[] weaponDistance = new double[]{100, 100, 100, 100, 100};
 
     public void easyGameMode(ActionEvent event) throws IOException {
         easy = true;
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("easy.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         model = new Model(3, 250);
+        weaponDistance = new double[]{100, 100, 100, 100, 100};
         for (int i=0; i<model.getLanes().size(); i++) {
             lanes.add((Rectangle) root.getChildren().get(i));
         }
@@ -114,6 +115,7 @@ public class Controller implements Initializable {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hard.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         model = new Model(5, 125);
+        weaponDistance = new double[]{100, 100, 100, 100, 100};
         for (int i=0; i<model.getLanes().size(); i++) {
             lanes.add((Rectangle) root.getChildren().get(i));
         }
