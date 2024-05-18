@@ -102,7 +102,7 @@ public class Controller implements Initializable {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         model = new Model(3, 250);
         weaponDistance = new double[]{100, 100, 100, 100, 100};
-        for (int i=0; i<model.getLanes().size(); i++) {
+        for (int i = 1; i <= model.getLanes().size(); i++) {
             lanes.add((Rectangle) root.getChildren().get(i));
         }
         scene = new Scene(root);
@@ -116,7 +116,7 @@ public class Controller implements Initializable {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         model = new Model(5, 125);
         weaponDistance = new double[]{100, 100, 100, 100, 100};
-        for (int i=0; i<model.getLanes().size(); i++) {
+        for (int i = 1; i <= model.getLanes().size(); i++) {
             lanes.add((Rectangle) root.getChildren().get(i));
         }
         scene = new Scene(root);
@@ -124,8 +124,6 @@ public class Controller implements Initializable {
         stage.show();
     }
     public void startMenu(ActionEvent event) throws IOException {
-        mediaPlayer.stop();
-        mediaPlayer.dispose();
         FXMLLoader fxmlLoader = new FXMLLoader(Controller.class.getResource("Start_Menu.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
@@ -134,8 +132,10 @@ public class Controller implements Initializable {
     }
 
     public void instructions(ActionEvent event) throws IOException {
-        mediaPlayer.stop();
-        mediaPlayer.dispose();
+        if (new File("intro.mp4").exists()) {
+            mediaPlayer.stop();
+            mediaPlayer.dispose();
+        }
         FXMLLoader fxmlLoader = new FXMLLoader(Controller.class.getResource("Instructions.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
@@ -372,13 +372,15 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File file = new File("intro.mp4");
-        Media media = new Media(file.toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
+        if (file.exists()) {
+            Media media = new Media(file.toURI().toString());
+            mediaPlayer = new MediaPlayer(media);
+        }
         view = new View();
         removal = new ArrayList<>();
         errors = new ArrayList<>();
         lanes = new ArrayList<>();
-        if (mediaView != null) {
+        if (mediaView != null && file.exists()) {
             mediaView.setMediaPlayer(mediaPlayer);
             mediaPlayer.play();
         }

@@ -41,7 +41,7 @@ public class View {
         rectangle.setY(y);
         switch (type){
             case "Piercing Cannon":
-                rectangle.setFill(Color.BLACK);
+                rectangle.setFill(Color.PURPLE);
                 break;
             case "Sniper Cannon":
                 rectangle.setFill(Color.RED);
