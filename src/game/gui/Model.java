@@ -69,6 +69,26 @@ public class Model {
         battle.purchaseWeapon(code, lane);
     }
 
+    public HashMap<Integer, Lane> getHighestDangerLevelLane() {
+        ArrayList<Lane> lanes = battle.getOriginalLanes();
+        Lane maxDanger = lanes.get(0);
+        int index = 0;
+        for (int i=0; i<lanes.size(); i++) {
+            if (lanes.get(i).getDangerLevel() > maxDanger.getDangerLevel()) {
+                maxDanger = lanes.get(i);
+                index = i;
+            }
+        }
+        HashMap<Integer, Lane> hashMap = new HashMap<>();
+        hashMap.put(index, maxDanger);
+        return hashMap;
+    }
+
+    public int getWeaponPrice(int code) {
+        HashMap<Integer, WeaponRegistry> weapons = battle.getWeaponFactory().getWeaponShop();
+        return weapons.get(code).getPrice();
+    }
+
     public boolean isGameOver() {
         return battle.isGameOver();
     }

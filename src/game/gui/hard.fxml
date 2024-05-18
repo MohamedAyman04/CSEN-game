@@ -160,7 +160,7 @@
                 <Font size="20.0" />
             </font>
         </Label>
-        <Button layoutX="717.0" layoutY="951.0" mnemonicParsing="false" onAction="#pass" prefHeight="40.0" prefWidth="149.0" style="-fx-background-color: blue; -fx-background-radius: 10; -fx-cursor: hand;" text="Pass Turn" textFill="WHITE">
+        <Button layoutX="594.0" layoutY="951.0" mnemonicParsing="false" onAction="#pass" prefHeight="40.0" prefWidth="149.0" style="-fx-background-color: blue; -fx-background-radius: 10; -fx-cursor: hand;" text="Pass Turn" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>
@@ -208,6 +208,11 @@
       <Button fx:id="startMenu" layoutX="609.0" layoutY="742.0" mnemonicParsing="false" onAction="#startMenu" prefHeight="69.0" prefWidth="364.0" style="-fx-background-color: blue; -fx-background-radius: 10; -fx-cursor: hand;" text="return to start menu" textFill="WHITE" visible="false">
          <font>
             <Font size="32.0" />
+         </font>
+      </Button>
+      <Button layoutX="805.0" layoutY="951.0" mnemonicParsing="false" onAction="#bestMove" prefHeight="40.0" prefWidth="149.0" style="-fx-background-color: blue; -fx-background-radius: 10; -fx-cursor: hand;" text="Best Move" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
          </font>
       </Button>
     </children>

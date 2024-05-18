@@ -95,6 +95,21 @@ public class Controller implements Initializable {
     private Button startMenu;
     private static boolean easy;
     private static double[] weaponDistance = new double[]{100, 100, 100, 100, 100};
+    private static HashMap<String, Rectangle> weapons1;
+    private static HashMap<Rectangle, Integer> weapons1Count;
+    private static HashMap<String, Rectangle> weapons2;
+    private static HashMap<Rectangle, Integer> weapons2Count;
+    private static HashMap<String, Rectangle> weapons3;
+    private static HashMap<Rectangle, Integer> weapons3Count;
+    private static HashMap<String, Rectangle> weapons4;
+    private static HashMap<Rectangle, Integer> weapons4Count;
+    private static HashMap<String, Rectangle> weapons5;
+    private static HashMap<Rectangle, Integer> weapons5Count;
+    private static HashMap<Rectangle, Label> remove1Count;
+    private static HashMap<Rectangle, Label> remove2Count;
+    private static HashMap<Rectangle, Label> remove3Count;
+    private static HashMap<Rectangle, Label> remove4Count;
+    private static HashMap<Rectangle, Label> remove5Count;
 
     public void easyGameMode(ActionEvent event) throws IOException {
         easy = true;
@@ -221,6 +236,144 @@ public class Controller implements Initializable {
         updateAll();
     }
 
+    public void bestMove() throws InvalidLaneException, InsufficientResourcesException {
+        HashMap<Integer, Lane> hashMap = model.getHighestDangerLevelLane();
+        int index = 0;
+        for (int key: hashMap.keySet()) {
+            index = key;
+        }
+        Lane maxDanger = hashMap.get(index);
+        PriorityQueue<Titan> titans = maxDanger.getTitans();
+        double x = 180;
+        double y = lanes.get(0).getHeight();
+        String type = "";
+        if (titans.size() >= 8) {
+            if (model.getCurrentResources() >= model.getWeaponPrice(3)) {
+                model.purchaseWeapon(3, maxDanger);
+                type = "VolleySpread Cannon";
+            } else {
+                model.pass();
+            }
+        } else if (titans.size() >= 5) {
+            if (model.getCurrentResources() < model.getWeaponPrice(3) && model.getCurrentResources() >= model.getWeaponPrice(1)) {
+                model.purchaseWeapon(1, maxDanger);
+                type = "Piercing Cannon";
+            } else if (model.getCurrentResources() >= model.getWeaponPrice(3)) {
+                model.purchaseWeapon(3, maxDanger);
+                type = "VolleySpread Cannon";
+            } else {
+                model.pass();
+            }
+        } else if (titans.size() >= 3) {
+            if (model.getCurrentResources() >= model.getWeaponPrice(1)) {
+                model.purchaseWeapon(1, maxDanger);
+                type = "Piercing Cannon";
+            } else {
+                model.pass();
+            }
+        } else if (!titans.isEmpty()) {
+            if (titans.peek().hasReachedTarget() && model.getCurrentResources() >= model.getWeaponPrice(4)) {
+                model.purchaseWeapon(4, maxDanger);
+                type = "Wall Trap";
+            } else if (model.getCurrentResources() >= model.getWeaponPrice(2)) {
+                model.purchaseWeapon(2, maxDanger);
+                type = "Sniper Cannon";
+            } else {
+                model.pass();
+            }
+        } else {
+            model.purchaseWeapon(2, maxDanger);
+            type = "Sniper Cannon";
+        }
+        if (index == 0) {
+            if (weapons1.containsKey(type)) {
+                Rectangle rec = weapons1.get(type);
+                int count = weapons1Count.get(rec);
+                Label label = view.count(count, rec.getX(), rec.getY() - 15);
+                if (remove1Count.containsKey(rec))
+                    root.getChildren().remove(remove1Count.get(rec));
+                root.getChildren().add(label);
+                remove1Count.put(rec, label);
+                weapons1Count.put(rec, weapons1Count.get(rec) + 1);
+            } else {
+                Rectangle node = view.createWeapon(x + weaponDistance[0], lanes.get(0).getLayoutY() - (y/4), type);
+                root.getChildren().add(node);
+                weaponDistance[0] += 30;
+                weapons1.put(type, node);
+                weapons1Count.put(node, 2);
+            }
+        } else if (index == 1) {
+            if (weapons2.containsKey(type)) {
+                Rectangle rec = weapons2.get(type);
+                int count = weapons2Count.get(rec);
+                Label label = view.count(count, rec.getX(), rec.getY() - 15);
+                if (remove2Count.containsKey(rec))
+                    root.getChildren().remove(remove2Count.get(rec));
+                root.getChildren().add(label);
+                remove2Count.put(rec, label);
+                weapons2Count.put(rec, weapons2Count.get(rec) + 1);
+            } else {
+                Rectangle node = view.createWeapon(x + weaponDistance[1], lanes.get(1).getLayoutY() - (y/4), type);
+                root.getChildren().add(node);
+                weaponDistance[1] += 30;
+                weapons2.put(type, node);
+                weapons2Count.put(node, 2);
+            }
+        } else if (index == 2) {
+            if (weapons3.containsKey(type)) {
+                Rectangle rec = weapons3.get(type);
+                int count = weapons3Count.get(rec);
+                Label label = view.count(count, rec.getX(), rec.getY() - 15);
+                if (remove3Count.containsKey(rec))
+                    root.getChildren().remove(remove3Count.get(rec));
+                root.getChildren().add(label);
+                remove3Count.put(rec, label);
+                weapons3Count.put(rec, weapons3Count.get(rec) + 1);
+            } else {
+                Rectangle node = view.createWeapon(x + weaponDistance[2], lanes.get(2).getLayoutY() - (y/4), type);
+                root.getChildren().add(node);
+                weaponDistance[2] += 30;
+                weapons3.put(type, node);
+                weapons3Count.put(node, 2);
+            }
+        } else if (index == 3) {
+            if (weapons4.containsKey(type)) {
+                Rectangle rec = weapons4.get(type);
+                int count = weapons4Count.get(rec);
+                Label label = view.count(count, rec.getX(), rec.getY() - 15);
+                if (remove4Count.containsKey(rec))
+                    root.getChildren().remove(remove4Count.get(rec));
+                root.getChildren().add(label);
+                remove4Count.put(rec, label);
+                weapons4Count.put(rec, weapons4Count.get(rec) + 1);
+            } else {
+                Rectangle node = view.createWeapon(x + weaponDistance[3], lanes.get(3).getLayoutY() - (y/4), type);
+                root.getChildren().add(node);
+                weaponDistance[3] += 30;
+                weapons4.put(type, node);
+                weapons4Count.put(node, 2);
+            }
+        } else {
+            if (weapons5.containsKey(type)) {
+                Rectangle rec = weapons5.get(type);
+                int count = weapons5Count.get(rec);
+                Label label = view.count(count, rec.getX(), rec.getY() - 15);
+                if (remove5Count.containsKey(rec))
+                    root.getChildren().remove(remove5Count.get(rec));
+                root.getChildren().add(label);
+                remove5Count.put(rec, label);
+                weapons5Count.put(rec, weapons5Count.get(rec) + 1);
+            } else {
+                Rectangle node = view.createWeapon(x + weaponDistance[4], lanes.get(4).getLayoutY() - (y/4), type);
+                root.getChildren().add(node);
+                weaponDistance[4] += 30;
+                weapons5.put(type, node);
+                weapons5Count.put(node, 2);
+            }
+        }
+        updateAll();
+    }
+
     public void showTitanOnLane(double y) {
         ArrayList<Lane> controlLanes = new ArrayList<>(model.getLanes());
         int counter = 0;
@@ -293,7 +446,7 @@ public class Controller implements Initializable {
             WeaponRegistry item = w.get(i+1);
             String weapon = "Name: " + item.getName();
             String type;
-            switch (i+1){
+            switch (i+1) {
                 case 1:
                     type = "Piercing Cannon";
                     break;
@@ -301,10 +454,10 @@ public class Controller implements Initializable {
                     type = "Sniper Cannon";
                     break;
                 case 3:
-                    type="VolleySpread Cannon";
+                    type = "VolleySpread Cannon";
                     break;
                 default:
-                    type="Wall trap";
+                    type = "Wall trap";
             }
             weapon += ", type: " + type + ", Price: " + item.getPrice() + ", Damage: " + item.getDamage();
             Button b = new Button(weapon);
@@ -324,28 +477,98 @@ public class Controller implements Initializable {
                         switch (id) {
                             case "B1":
                                 model.purchaseWeapon(code, controlLanes.get(0));
-                                root.getChildren().add(view.createWeapon(x + weaponDistance[0], lanes.get(0).getLayoutY() - (y/4), type));
-                                weaponDistance[0] += 30;
+                                if (weapons1.containsKey(type)) {
+                                    Rectangle rec = weapons1.get(type);
+                                    int count = weapons1Count.get(rec);
+                                    Label label = view.count(count, rec.getX(), rec.getY() - 15);
+                                    if (remove1Count.containsKey(rec))
+                                        root.getChildren().remove(remove1Count.get(rec));
+                                    root.getChildren().add(label);
+                                    remove1Count.put(rec, label);
+                                    weapons1Count.put(rec, weapons1Count.get(rec) + 1);
+                                } else {
+                                    Rectangle node = view.createWeapon(x + weaponDistance[0], lanes.get(0).getLayoutY() - (y/4), type);
+                                    root.getChildren().add(node);
+                                    weaponDistance[0] += 30;
+                                    weapons1.put(type, node);
+                                    weapons1Count.put(node, 2);
+                                }
                                 break;
                             case "B2":
                                 model.purchaseWeapon(code, controlLanes.get(1));
-                                root.getChildren().add(view.createWeapon(x + weaponDistance[1], lanes.get(1).getLayoutY() - (y/4), type));
-                                weaponDistance[1] += 30;
+                                if (weapons2.containsKey(type)) {
+                                    Rectangle rec = weapons2.get(type);
+                                    int count = weapons2Count.get(rec);
+                                    Label label = view.count(count, rec.getX(), rec.getY() - 15);
+                                    if (remove2Count.containsKey(rec))
+                                        root.getChildren().remove(remove2Count.get(rec));
+                                    root.getChildren().add(label);
+                                    remove2Count.put(rec, label);
+                                    weapons2Count.put(rec, weapons2Count.get(rec) + 1);
+                                } else {
+                                    Rectangle node = view.createWeapon(x + weaponDistance[1], lanes.get(1).getLayoutY() - (y/4), type);
+                                    root.getChildren().add(node);
+                                    weaponDistance[1] += 30;
+                                    weapons2.put(type, node);
+                                    weapons2Count.put(node, 2);
+                                }
                                 break;
                             case "B3":
                                 model.purchaseWeapon(code, controlLanes.get(2));
-                                root.getChildren().add(view.createWeapon(x + weaponDistance[2], lanes.get(2).getLayoutY() - (y/4), type));
-                                weaponDistance[2] += 30;
+                                if (weapons3.containsKey(type)) {
+                                    Rectangle rec = weapons3.get(type);
+                                    int count = weapons3Count.get(rec);
+                                    Label label = view.count(count, rec.getX(), rec.getY() - 15);
+                                    if (remove3Count.containsKey(rec))
+                                        root.getChildren().remove(remove3Count.get(rec));
+                                    root.getChildren().add(label);
+                                    remove3Count.put(rec, label);
+                                    weapons3Count.put(rec, weapons3Count.get(rec) + 1);
+                                } else {
+                                    Rectangle node = view.createWeapon(x + weaponDistance[2], lanes.get(2).getLayoutY() - (y/4), type);
+                                    root.getChildren().add(node);
+                                    weaponDistance[2] += 30;
+                                    weapons3.put(type, node);
+                                    weapons3Count.put(node, 2);
+                                }
                                 break;
                             case "B4":
                                 model.purchaseWeapon(code, controlLanes.get(3));
-                                root.getChildren().add(view.createWeapon(x + weaponDistance[3], lanes.get(3).getLayoutY() - (y/4), type));
-                                weaponDistance[3] += 30;
+                                if (weapons4.containsKey(type)) {
+                                    Rectangle rec = weapons4.get(type);
+                                    int count = weapons4Count.get(rec);
+                                    Label label = view.count(count, rec.getX(), rec.getY() - 15);
+                                    if (remove4Count.containsKey(rec))
+                                        root.getChildren().remove(remove4Count.get(rec));
+                                    root.getChildren().add(label);
+                                    remove4Count.put(rec, label);
+                                    weapons4Count.put(rec, weapons4Count.get(rec) + 1);
+                                } else {
+                                    Rectangle node = view.createWeapon(x + weaponDistance[3], lanes.get(3).getLayoutY() - (y/4), type);
+                                    root.getChildren().add(node);
+                                    weaponDistance[3] += 30;
+                                    weapons4.put(type, node);
+                                    weapons4Count.put(node, 2);
+                                }
                                 break;
                             default:
                                 model.purchaseWeapon(code, controlLanes.get(4));
-                                root.getChildren().add(view.createWeapon(x + weaponDistance[4], lanes.get(4).getLayoutY() - (y/4), type));
-                                weaponDistance[4] += 30;
+                                if (weapons5.containsKey(type)) {
+                                    Rectangle rec = weapons5.get(type);
+                                    int count = weapons5Count.get(rec);
+                                    Label label = view.count(count, rec.getX(), rec.getY() - 15);
+                                    if (remove5Count.containsKey(rec))
+                                        root.getChildren().remove(remove5Count.get(rec));
+                                    root.getChildren().add(label);
+                                    remove5Count.put(rec, label);
+                                    weapons5Count.put(rec, weapons5Count.get(rec) + 1);
+                                } else {
+                                    Rectangle node = view.createWeapon(x + weaponDistance[4], lanes.get(4).getLayoutY() - (y/4), type);
+                                    root.getChildren().add(node);
+                                    weaponDistance[4] += 30;
+                                    weapons5.put(type, node);
+                                    weapons5Count.put(node, 2);
+                                }
                         }
                         root.getChildren().remove(h);
                         updateAll();
@@ -380,6 +603,21 @@ public class Controller implements Initializable {
         removal = new ArrayList<>();
         errors = new ArrayList<>();
         lanes = new ArrayList<>();
+        weapons1 = new HashMap<>();
+        weapons2 = new HashMap<>();
+        weapons3 = new HashMap<>();
+        weapons4 = new HashMap<>();
+        weapons5 = new HashMap<>();
+        weapons1Count = new HashMap<>();
+        weapons2Count = new HashMap<>();
+        weapons3Count = new HashMap<>();
+        weapons4Count = new HashMap<>();
+        weapons5Count = new HashMap<>();
+        remove1Count = new HashMap<>();
+        remove2Count = new HashMap<>();
+        remove3Count = new HashMap<>();
+        remove4Count = new HashMap<>();
+        remove5Count = new HashMap<>();
         if (mediaView != null && file.exists()) {
             mediaView.setMediaPlayer(mediaPlayer);
             mediaPlayer.play();

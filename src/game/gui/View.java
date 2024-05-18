@@ -32,8 +32,17 @@ public class View {
         return rectangle;
     }
 
+    public Label count(int count, double x, double y) {
+        Label label = new Label("x " + count);
+        label.setTextFill(Color.WHITE);
+        label.setStyle("-fx-font-weight: bold");
+        label.setLayoutX(x);
+        label.setLayoutY(y);
+        return label;
+    }
 
-    public Node createWeapon(double x, double y, String type) {
+
+    public Rectangle createWeapon(double x, double y, String type) {
         Rectangle rectangle = new Rectangle();
         rectangle.setWidth(20);
         rectangle.setHeight(10);
@@ -51,7 +60,6 @@ public class View {
                 break;
             default:
                 rectangle.setFill(Color.ORANGE);
-
         }
         return rectangle;
     }
