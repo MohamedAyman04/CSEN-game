@@ -243,36 +243,39 @@ public class Controller implements Initializable {
             index = key;
         }
         Lane maxDanger = hashMap.get(index);
+        int maxD = model.maxDanger();
         PriorityQueue<Titan> titans = maxDanger.getTitans();
         double x = 180;
         double y = lanes.get(0).getHeight();
         String type = "";
-        if (titans.size() >= 8) {
-            if (model.getCurrentResources() >= model.getWeaponPrice(3)) {
-                model.purchaseWeapon(3, maxDanger);
-                type = "VolleySpread Cannon";
-            } else {
-                model.pass();
-            }
-        } else if (titans.size() >= 5) {
-            if (model.getCurrentResources() < model.getWeaponPrice(3) && model.getCurrentResources() >= model.getWeaponPrice(1)) {
-                model.purchaseWeapon(1, maxDanger);
-                type = "Piercing Cannon";
-            } else if (model.getCurrentResources() >= model.getWeaponPrice(3)) {
-                model.purchaseWeapon(3, maxDanger);
-                type = "VolleySpread Cannon";
-            } else {
-                model.pass();
-            }
-        } else if (titans.size() >= 3) {
+        if (maxD<=3) {
             if (model.getCurrentResources() >= model.getWeaponPrice(1)) {
-                model.purchaseWeapon(1, maxDanger);
+                model.purchaseWeapon(1,maxDanger);
                 type = "Piercing Cannon";
             } else {
                 model.pass();
             }
-        } else if (!titans.isEmpty()) {
-            if (titans.peek().hasReachedTarget() && model.getCurrentResources() >= model.getWeaponPrice(4)) {
+        } else if (maxD>5) {
+            if (model.getCurrentResources() < model.getWeaponPrice(2) && model.getCurrentResources() >= model.getWeaponPrice(1)) {
+                model.purchaseWeapon(1, maxDanger);
+                type = "Piercing Cannon";
+            } else if (model.getCurrentResources() >= model.getWeaponPrice(2)) {
+                model.purchaseWeapon(2, maxDanger);
+                type = "Sniper Cannon";
+            } else {
+                model.pass();
+            }
+        }
+//        else if (titans.size() >= 3) {
+//            if (model.getCurrentResources() >= model.getWeaponPrice(1)) {
+//                model.purchaseWeapon(1, maxDanger);
+//                type = "Sniper Cannon";
+//            } else {
+//                model.pass();
+//            }
+//        }
+        else if (!titans.isEmpty()) {
+            if (titans.peek().hasReachedTarget() && model.getCurrentResources() >= model.getWeaponPrice(4) && titans.peek().getDangerLevel()==4) {
                 model.purchaseWeapon(4, maxDanger);
                 type = "Wall Trap";
             } else if (model.getCurrentResources() >= model.getWeaponPrice(2)) {
@@ -281,9 +284,6 @@ public class Controller implements Initializable {
             } else {
                 model.pass();
             }
-        } else {
-            model.purchaseWeapon(2, maxDanger);
-            type = "Sniper Cannon";
         }
         if (index == 0) {
             if (weapons1.containsKey(type)) {
