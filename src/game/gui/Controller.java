@@ -485,7 +485,7 @@ public class Controller implements Initializable {
                 public void handle(ActionEvent event1) {
                     HBox h = new HBox();
                     h.setLayoutX(250);
-                    h.setLayoutY(90);
+                    h.setLayoutY(100);
                     try {
                         Button btn = (Button) event.getSource();
                         String id = btn.getId();
@@ -595,17 +595,29 @@ public class Controller implements Initializable {
                         l.setTextFill(Color.RED);
                         l.setFont(Font.font("Verdana", 25));
                         l.setStyle("-fx-font-weight: bold");
+                        l.setLayoutX(250);
+                        if (easy) {
+                            l.setLayoutY(80);
+                        } else {
+                            l.setLayoutY(50);
+                        }
                         h.getChildren().add(l);
-                        root.getChildren().add(h);
-                        errors.add(h);
+                        root.getChildren().add(l);
+                        errors.add(l);
                     } catch (InsufficientResourcesException e) {
                         Label l = new Label(e.getMessage());
                         l.setTextFill(Color.RED);
                         l.setFont(Font.font("Verdana", 25));
                         l.setStyle("-fx-font-weight: bold");
                         h.getChildren().add(l);
-                        root.getChildren().add(h);
-                        errors.add(h);
+                        l.setLayoutX(250);
+                        if (easy) {
+                            l.setLayoutY(80);
+                        } else {
+                            l.setLayoutY(50);
+                        }
+                        root.getChildren().add(l);
+                        errors.add(l);
                     }
                     r.getChildren().remove(listView);
                 }
