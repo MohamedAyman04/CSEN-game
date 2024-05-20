@@ -65,6 +65,10 @@ public class Model {
         return lanesDangerLevel;
     }
 
+    public int getNumberOfTurns() {
+        return battle.getNumberOfTurns();
+    }
+
     public void purchaseWeapon(int code, Lane lane) throws InvalidLaneException, InsufficientResourcesException {
         battle.purchaseWeapon(code, lane);
     }

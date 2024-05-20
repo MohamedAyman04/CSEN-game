@@ -219,72 +219,9 @@ public class Controller implements Initializable {
         }
     }
 
-    public void updateAll() {
-        root.getChildren().removeAll(errors);
-        showTitanOnLane(lanes.get(0).getHeight());
-        updateDangerLevel();
-        updatePhase();
-        updateResources();
-        changeScore();
-        updateCurrentTurn();
-        updateWallHealth();
-        isGameOver();
-    }
-
-    public void pass() {
-        model.pass();
-        updateAll();
-    }
-
-    public void bestMove() throws InvalidLaneException, InsufficientResourcesException {
-        HashMap<Integer, Lane> hashMap = model.getHighestDangerLevelLane();
-        int index = 0;
-        for (int key: hashMap.keySet()) {
-            index = key;
-        }
-        Lane maxDanger = hashMap.get(index);
-        int maxD = model.maxDanger();
-        PriorityQueue<Titan> titans = maxDanger.getTitans();
+    public void updateUI (int index, String type) {
         double x = 180;
         double y = lanes.get(0).getHeight();
-        String type = "";
-        if (maxD<=3) {
-            if (model.getCurrentResources() >= model.getWeaponPrice(1)) {
-                model.purchaseWeapon(1,maxDanger);
-                type = "Piercing Cannon";
-            } else {
-                model.pass();
-            }
-        } else if (maxD>5) {
-            if (model.getCurrentResources() < model.getWeaponPrice(2) && model.getCurrentResources() >= model.getWeaponPrice(1)) {
-                model.purchaseWeapon(1, maxDanger);
-                type = "Piercing Cannon";
-            } else if (model.getCurrentResources() >= model.getWeaponPrice(2)) {
-                model.purchaseWeapon(2, maxDanger);
-                type = "Sniper Cannon";
-            } else {
-                model.pass();
-            }
-        }
-//        else if (titans.size() >= 3) {
-//            if (model.getCurrentResources() >= model.getWeaponPrice(1)) {
-//                model.purchaseWeapon(1, maxDanger);
-//                type = "Sniper Cannon";
-//            } else {
-//                model.pass();
-//            }
-//        }
-        else if (!titans.isEmpty()) {
-            if (titans.peek().hasReachedTarget() && model.getCurrentResources() >= model.getWeaponPrice(4) && titans.peek().getDangerLevel()==4) {
-                model.purchaseWeapon(4, maxDanger);
-                type = "Wall Trap";
-            } else if (model.getCurrentResources() >= model.getWeaponPrice(2)) {
-                model.purchaseWeapon(2, maxDanger);
-                type = "Sniper Cannon";
-            } else {
-                model.pass();
-            }
-        }
         if (index == 0) {
             if (weapons1.containsKey(type)) {
                 Rectangle rec = weapons1.get(type);
@@ -371,6 +308,87 @@ public class Controller implements Initializable {
                 weapons5Count.put(node, 2);
             }
         }
+    }
+
+    public void updateAll() {
+        root.getChildren().removeAll(errors);
+        showTitanOnLane(lanes.get(0).getHeight());
+        updateDangerLevel();
+        updatePhase();
+        updateResources();
+        changeScore();
+        updateCurrentTurn();
+        updateWallHealth();
+        isGameOver();
+    }
+
+    public void pass() {
+        model.pass();
+        updateAll();
+    }
+
+    public void bestMove() throws InvalidLaneException, InsufficientResourcesException {
+        HashMap<Integer, Lane> hashMap = model.getHighestDangerLevelLane();
+        int index = 0;
+        for (int key: hashMap.keySet()) {
+            index = key;
+        }
+        Lane maxDanger = hashMap.get(index);
+        int maxD = model.maxDanger();
+        PriorityQueue<Titan> titans = maxDanger.getTitans();
+        String type = "";
+        if (easy) {
+            if (maxD <= 3) {
+                if (model.getCurrentResources() >= model.getWeaponPrice(4)) {
+                    model.purchaseWeapon(4, maxDanger);
+                    type = "Wall Trap";
+                } else if (model.getCurrentResources() >= model.getWeaponPrice(2)) {
+                    model.purchaseWeapon(2, maxDanger);
+                    type = "Sniper Cannon";
+                } else if (model.getCurrentResources() >= model.getWeaponPrice(1)) {
+                    model.purchaseWeapon(1, maxDanger);
+                    type = "Piercing Cannon";
+                } else {
+                    model.pass();
+                }
+            } else {
+                if (model.getCurrentResources() >= model.getWeaponPrice(2)) {
+                    model.purchaseWeapon(2, maxDanger);
+                    type = "Sniper Cannon";
+                } else if (model.getCurrentResources() >= model.getWeaponPrice(1)) {
+                    model.purchaseWeapon(1, maxDanger);
+                    type = "Piercing Cannon";
+                } else {
+                    model.pass();
+                }
+            }
+        } else {
+            if (maxD <= 3) {
+                if (titans.peek() != null && titans.peek().hasReachedTarget() && model.getCurrentResources() >= model.getWeaponPrice(4)) {
+                    model.purchaseWeapon(4, maxDanger);
+                    type = "Wall Trap";
+                } else if (model.getCurrentResources() >= model.getWeaponPrice(2)) {
+                    model.purchaseWeapon(2, maxDanger);
+                    type = "Sniper Cannon";
+                } else if (model.getCurrentResources() >= model.getWeaponPrice(1)) {
+                    model.purchaseWeapon(1, maxDanger);
+                    type = "Piercing Cannon";
+                } else {
+                    model.pass();
+                }
+            } else {
+                if (model.getCurrentResources() >= model.getWeaponPrice(2)) {
+                    model.purchaseWeapon(2, maxDanger);
+                    type = "Sniper Cannon";
+                } else if (model.getCurrentResources() >= model.getWeaponPrice(1)) {
+                    model.purchaseWeapon(1, maxDanger);
+                    type = "Piercing Cannon";
+                } else {
+                    model.pass();
+                }
+            }
+        }
+        updateUI(index, type);
         updateAll();
     }
 
