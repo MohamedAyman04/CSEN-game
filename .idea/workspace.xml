@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f981e316-580d-483e-9e04-b9dbd690403d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/gui/hard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/hard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intro.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSEN-game/assets/attack-background.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSEN-game/assets/attack-on-titan-icon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSEN-game/assets/grass.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/attack-background.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/attack-on-titan-icon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/grass.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,13 +36,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "F:/Music"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

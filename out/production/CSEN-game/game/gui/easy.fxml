@@ -99,22 +99,22 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Label fx:id="Score" layoutX="28.0" layoutY="27.0" prefHeight="40.0" prefWidth="176.0" style="-fx-font-weight: bold;" text="Score: 0" textFill="WHITE">
+      <Label fx:id="Score" layoutX="28.0" layoutY="27.0" prefHeight="40.0" prefWidth="166.0" style="-fx-font-weight: bold;" text="Score: 0" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="Turn" layoutX="426.0" layoutY="27.0" prefHeight="40.0" prefWidth="176.0" style="-fx-font-weight: bold;" text="Current turn: 1" textFill="WHITE">
+      <Label fx:id="Turn" layoutX="465.0" layoutY="27.0" prefHeight="40.0" prefWidth="196.0" style="-fx-font-weight: bold;" text="Current turn: 1" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="Phase" layoutX="620.0" layoutY="27.0" prefHeight="40.0" prefWidth="326.0" style="-fx-font-weight: bold;" text="Current Phase: Early" textFill="WHITE">
+      <Label fx:id="Phase" layoutX="677.0" layoutY="27.0" prefHeight="40.0" prefWidth="326.0" style="-fx-font-weight: bold;" text="Current Phase: Early" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="Resources" layoutX="237.0" layoutY="27.0" prefHeight="40.0" prefWidth="149.0" style="-fx-font-weight: bold;" text="Resources: 750" textFill="WHITE">
+      <Label fx:id="Resources" layoutX="208.0" layoutY="27.0" prefHeight="40.0" prefWidth="232.0" style="-fx-font-weight: bold;" text="Resources: 750" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
