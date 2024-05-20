@@ -94,7 +94,7 @@ public class Controller implements Initializable {
     @FXML
     private Button startMenu;
     private static boolean easy;
-    private static double[] weaponDistance = new double[]{100, 100, 100, 100, 100};
+    private static double[] weaponDistance = new double[]{110, 110, 110, 110, 110};
     private static HashMap<String, Rectangle> weapons1;
     private static HashMap<Rectangle, Integer> weapons1Count;
     private static HashMap<String, Rectangle> weapons2;
@@ -116,7 +116,7 @@ public class Controller implements Initializable {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("easy.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         model = new Model(3, 250);
-        weaponDistance = new double[]{100, 100, 100, 100, 100};
+        weaponDistance = new double[]{110, 110, 110, 110, 110};
         for (int i = 1; i <= model.getLanes().size(); i++) {
             lanes.add((Rectangle) root.getChildren().get(i));
         }
@@ -130,7 +130,7 @@ public class Controller implements Initializable {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hard.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         model = new Model(5, 125);
-        weaponDistance = new double[]{100, 100, 100, 100, 100};
+        weaponDistance = new double[]{110, 110, 110, 110, 110};
         for (int i = 1; i <= model.getLanes().size(); i++) {
             lanes.add((Rectangle) root.getChildren().get(i));
         }
@@ -485,7 +485,7 @@ public class Controller implements Initializable {
                 public void handle(ActionEvent event1) {
                     HBox h = new HBox();
                     h.setLayoutX(250);
-                    h.setLayoutY(100);
+                    h.setLayoutY(90);
                     try {
                         Button btn = (Button) event.getSource();
                         String id = btn.getId();
@@ -590,10 +590,19 @@ public class Controller implements Initializable {
                         }
                         root.getChildren().remove(h);
                         updateAll();
-                    } catch (InvalidLaneException | InsufficientResourcesException e) {
+                    } catch (InvalidLaneException e) {
+                        Label l = new Label(e.getMessage() + ", because the lane was lost");
+                        l.setTextFill(Color.RED);
+                        l.setFont(Font.font("Verdana", 25));
+                        l.setStyle("-fx-font-weight: bold");
+                        h.getChildren().add(l);
+                        root.getChildren().add(h);
+                        errors.add(h);
+                    } catch (InsufficientResourcesException e) {
                         Label l = new Label(e.getMessage());
                         l.setTextFill(Color.RED);
                         l.setFont(Font.font("Verdana", 25));
+                        l.setStyle("-fx-font-weight: bold");
                         h.getChildren().add(l);
                         root.getChildren().add(h);
                         errors.add(h);
